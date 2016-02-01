@@ -1,44 +1,23 @@
-import {REQUEST_PETS, RECEIVE_PETS_SUCCESS, RECEIVE_PETS_ERROR} from '../actions/petActions';
+import * as actions from '../constants/petConstants';
 
 const initialState = {
-  isFetching: false,
-  isError: false,
-  errorMessage: '',
+  fetching: false,
   pets: []
 };
 
-const petReducer = (state = initialState, action) => {
-  let newState = {};
-
+const petReducers = (state = initialState, action) => {
   switch(action.type) {
 
-    case REQUEST_PETS:
-      console.log('REQUEST_PETS');
-      return Object.assign({}, state, {
-        isFetching: true
-      });
-
-    case RECEIVE_PETS_SUCCESS:
-      console.log('RECEIVE_PETS_SUCCESS');
-      return Object.assign({}, state, {
-        isFetching: false,
-        isError: false,
-        pets: action.pets,
-        lastUpdate: action.receivedAt
-      });
-
-    case RECEIVE_PETS_ERROR:
-      console.log('RECEIVE_PETS_ERROR');
-      return Object.assign({}, state, {
-        isFetching: false,
-        isError: true,
-        errorMessage: action.errorMessage,
-        lastUpdate: action.receivedAt
-      });
+    case actions.PETS_REQUEST:
+      return Object.assign({}, state, { fetching: true });
+    case actions.PETS_SUCCESS:
+      return Object.assign({}, state, { fetching: false, error: '', pets: action.pets });
+    case actions.PETS_ERROR:
+      return Object.assign({}, state, { fetching: false, error: action.error });
 
     default:
       return state;
   }
 };
 
-export default petReducer;
+export default petReducers;

@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  background-color: rgb(196, 209, 228);
+  font-size: 1.4em;
+}
+
+.container {
+  margin: auto;
+  max-width: 960px;
+  background-color: rgb(186, 107, 172);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: rgb(169, 199, 126);
+  margin: 5px;
+  padding: 5px 25px 5px 25px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  min-height: 70vh;
+  background-color: rgb(165, 227, 203);
+  display: flex;
+}
+
+.menu {
+  background-color: rgb(237, 213, 202);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 5px;
+  margin: 5px;
+}
+.menuItem {
+  text-decoration: none;
+  display: flex;
+  padding: 5px;
+}
+.menuItem:hover {
+  background-color: rgb(155, 180, 231);
+  transition: 0.3s;
+}
+
+.main {
+  flex: 3;
+  background-color: rgb(235, 164, 196);
+  padding: 5px;
+  margin: 5px;
+}
+
+.footer {
+  background-color: rgb(221, 207, 255);
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+}
+
+@media screen and (max-width: 640px) {
+  .content {
+    flex-direction: column;
+  }
+  .menu {
+    flex-direction: row;
+    justify-content: space-around;
+    flex: none;
+  }
+}
+
+.login {
+  text-decoration: none;
+}
+.login:hover {
+  background-color: rgb(215, 202, 151);
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.centerMap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.libraries {
+  display: flex;
+  justify-content: center;
+}

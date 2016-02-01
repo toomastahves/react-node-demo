@@ -1,16 +1,27 @@
-import React, { Component } from 'react';
-import PetPage from './PetPage';
-import { Provider } from 'react-redux';
-import config from '../store/config';
+import React, { PropTypes } from 'react';
+import style from '../style.css';
+import { connect } from 'react-redux';
+import Menu from './menu/';
+import Header from './header/';
+import Footer from './footer/';
 
-class App extends Component {
-  render() {
-    return(
-      <Provider store={config}>
-        <PetPage />
-      </Provider>
-    );
-  }
-}
+export const App = (props) => {
+  return (
+    <div className={style.container}>
+      <Header />
+      <div className={style.content}>
+        <Menu />
+        <div className={style.main}>
+          {props.children}
+        </div>
+      </div>
+      <div className={style.footer}><Footer /></div>
+    </div>
+  );
+};
 
-export default App;
+App.propTypes = {
+  children: PropTypes.object.isRequired
+};
+
+export default connect()(App);

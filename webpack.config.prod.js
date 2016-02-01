@@ -1,0 +1,36 @@
+const path = require('path');
+const webpack = require('webpack');
+
+module.exports = {
+  devtool: 'source-map',
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
+  entry: [
+    './client/index'
+  ],
+  output: {
+    path: path.join(__dirname, 'public/assets'),
+    filename: 'bundle.js',
+    publicPath: '/assets/'
+  },
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
+    })
+  ],
+  module: {
+    loaders: [
+      { test: /\.jsx?$/, loaders: ['babel'], include: path.join(__dirname, 'client') },
+      { test: /\.css$/, loaders: ['style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'], exclude: /node_modules/ }
+    ]
+  }
+};
