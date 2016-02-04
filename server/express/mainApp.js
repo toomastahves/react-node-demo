@@ -7,6 +7,6 @@ const mainApp = express();
 mainApp.use(express.static('public'));
 mainApp.use(favicon('public/favicon.ico'));
 
-applyMiddleware(mainApp);
+// applyMiddleware(mainApp);
 
 export default mainApp;
