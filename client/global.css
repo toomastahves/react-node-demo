@@ -1,0 +1,9 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  color: #526066;
+  margin: 0 0 100px;
+}

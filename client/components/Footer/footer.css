@@ -1,0 +1,16 @@
+.footer {
+    background: #111;
+    color: #888;
+    text-align: center;
+
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    box-sizing: border-box;
+}
+.footer a {
+    color: #ddd;
+}
+.l-box {
+    padding: 0.5em 2em;
+}

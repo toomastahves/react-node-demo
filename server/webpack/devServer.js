@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import config from '../../webpack.config.dev';
 import WebpackDevServer from 'webpack-dev-server';
 
-const server = () => {
+export const startWebpackDevServer = () => {
   new WebpackDevServer(webpack(config), {
     historyApiFallback: true,
     noInfo: true,
@@ -15,5 +15,3 @@ const server = () => {
     console.log('WebpackDevServer started at localhost:1337');
   });
 };
-
-export default server;

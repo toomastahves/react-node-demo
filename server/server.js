@@ -1,11 +1,14 @@
-import app from './express/app';
-import webpackDevServer from './webpack/devServer';
+import { startWebpackDevServer } from './webpack/devServer';
+import mainApp from './express/mainApp';
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Express started at ${port}`);
+mainApp.listen(port, () => {
+  console.log(`Express mainApp started at ${port}`);
 });
 
+import { connectToCacheDatabase } from './databases/cacheDb';
+connectToCacheDatabase();
+
 if(process.env.NODE_ENV !== 'production') {
-  webpackDevServer();
+  startWebpackDevServer();
 }

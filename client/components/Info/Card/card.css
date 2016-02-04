@@ -1,0 +1,14 @@
+.card-wrap {
+  max-width: 980px;
+  margin: 0 auto 2em auto;
+}
+.card-content {
+    line-height: 1.6em;
+}
+
+.information-head {
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding-bottom: 20px;
+}

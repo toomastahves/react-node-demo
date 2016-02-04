@@ -1,7 +1,7 @@
 {
-  "name": "react-starter",
+  "name": "react-node-demo",
   "version": "0.0.1",
-  "description": "React starter",
+  "description": "React Node demo website",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server/index.js",
@@ -13,18 +13,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/toomastahves/react-starter.git"
+    "url": "git+https://github.com/toomastahves/react-node-demo.git"
   },
   "keywords": [],
   "author": "Toomas Tahves",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/toomastahves/react-starter/issues"
+    "url": "https://github.com/toomastahves/react-node-demo/issues"
   },
   "engines": {
     "node": "5.5.0"
   },
-  "homepage": "https://github.com/toomastahves/react-starter#readme",
+  "homepage": "https://github.com/toomastahves/react-node-demo#readme",
   "devDependencies": {
     "babel-eslint": "^4.1.6",
     "chai": "^3.4.1",
@@ -53,24 +53,32 @@
     "chart.js": "^1.0.2",
     "compression": "^1.6.1",
     "css-loader": "^0.23.1",
+    "errorhandler": "^1.4.3",
     "express": "^4.13.4",
+    "file-loader": "^0.8.5",
+    "font-awesome": "^4.5.0",
     "helmet": "^1.1.0",
     "history": "^1.17.0",
     "isomorphic-fetch": "^2.2.1",
     "mongoose": "^4.3.7",
     "morgan": "^1.6.1",
+    "purecss": "^0.6.0",
     "react": "^0.14.6",
     "react-chartjs": "^0.7.3",
     "react-dom": "^0.14.6",
     "react-gmaps": "^1.2.2",
     "react-redux": "^4.0.6",
     "react-router": "^2.0.0-rc5",
-    "react-router-redux": "^2.1.0",
+    "react-router-redux": "^3.0.0",
     "reactable": "^0.12.2",
+    "redis": "^2.4.2",
     "redux": "^3.0.6",
     "redux-thunk": "^1.0.3",
+    "response-time": "^2.3.1",
     "serve-favicon": "^2.3.0",
+    "shortid": "^2.2.4",
     "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
     "webpack": "^1.12.12"
   }
 }

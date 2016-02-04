@@ -1,0 +1,43 @@
+.box-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  margin-bottom: 3.125em;
+  text-align: center;
+}
+
+.box-table {
+  border: 1px solid #ddd;
+  margin: 0 0.5em 2em;
+  padding: 0 0 3em;
+}
+
+.box-table-header {
+  background: #111;
+  color: #fff;
+  padding: 20px 0px 20px 0px;
+  margin: 0;
+  font-size: 1em;
+  font-weight: normal;
+}
+
+.box-table-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.box-table-list li {
+  padding: 0.8em 0;
+  background: #f7f7f7;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.box-button-choose {
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #333;
+  border-radius: 2em;
+  font-weight: bold;
+  position: relative;
+  bottom: -1.5em;
+}
