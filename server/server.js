@@ -6,9 +6,6 @@ mainApp.listen(port, () => {
   console.log(`Express mainApp started at ${port}`);
 });
 
-import { connectToCacheDatabase } from './databases/cacheDb';
-connectToCacheDatabase();
-
 if(process.env.NODE_ENV !== 'production') {
   startWebpackDevServer();
 }
