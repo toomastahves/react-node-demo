@@ -40,8 +40,7 @@
     "nock": "^7.0.2",
     "nodemon": "^1.8.1",
     "react-addons-test-utils": "^0.14.6",
-    "redux-mock-store": "0.0.6",
-    "webpack-dev-server": "^1.14.1"
+    "redux-mock-store": "0.0.6"
   },
   "dependencies": {
     "babel-core": "^6.4.5",
@@ -79,6 +78,7 @@
     "shortid": "^2.2.4",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.12"
+    "webpack": "^1.12.12",
+    "webpack-dev-server": "^1.14.1"
   }
 }
