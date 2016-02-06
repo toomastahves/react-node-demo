@@ -11,4 +11,4 @@ const Pet = new Schema({
   }
 });
 
-export default db().model('Pet', Pet);
+export default db.model('Pet', Pet);

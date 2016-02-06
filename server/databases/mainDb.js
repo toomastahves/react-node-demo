@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
+import config from '../config/';
 
 const connectToMainDatabase = () => {
-  const url = process.env.MONGOLAB_URI || 'mongodb://user:pass@ds037005.mongolab.com:37005/toomastahvesdb';
+  const url = process.env.MONGOLAB_URI || config.MONGOLAB_URI;
+  const conn = mongoose.createConnection(url);
   try {
-    const conn = mongoose.createConnection(url);
     conn.on('connected', () => {
       console.log('Connected to mongodb connectToMainDatabase.');
     });
@@ -13,4 +14,4 @@ const connectToMainDatabase = () => {
   }
 };
 
-export default connectToMainDatabase;
+export default connectToMainDatabase();
