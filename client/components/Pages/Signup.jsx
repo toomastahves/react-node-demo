@@ -8,7 +8,6 @@ const handleSubmit = (props, e) => {
   e.preventDefault();
   const username = e.target.querySelector('[name="username"]').value;
   const password = e.target.querySelector('[name="password"]').value;
-  console.log(username, password);
   props.dispatch(signup({ username, password }));
 };
 

@@ -5,11 +5,10 @@ import Footer from '../Footer';
 export const AuthLayout = (SubComponent) => {
 
   const A = (props) => {
-    const data = 'hello';
     return (
       <div>
         <Menu />
-        <SubComponent {...props} data={data} />
+        <SubComponent {...props} />
         <Footer />
       </div>
     );

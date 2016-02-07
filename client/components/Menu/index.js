@@ -2,11 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { signout } from '../../actions/signout';
 import './menu.css';
-import { hashHistory } from 'react-router';
 
 const handleSignout = (props, e) => {
   e.preventDefault();
-  hashHistory.push('home');
   props.dispatch(signout(props));
 };
 

@@ -18,7 +18,8 @@ export const signupResponse = (data) => {
     };
 
   setValue(LOCALSTORAGE_TOKEN_KEY, data.token);
-  hashHistory.push('home');
+
+  hashHistory.replace('home');
 
   return {
     type: SIGNUP_SUCCESS,
@@ -49,6 +50,6 @@ export const signup = (user) => {
     })
     .then(response => response.json())
     .then(data => dispatch(signupResponse(data)))
-    .then(error => dispatch(signupError(error)));
+    .catch(error => dispatch(signupError(error)));
   };
 };

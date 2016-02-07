@@ -18,7 +18,9 @@ export const signinResponse = (data) => {
     };
 
   setValue(LOCALSTORAGE_TOKEN_KEY, data.token);
-  hashHistory.push('home');
+
+  hashHistory.replace('home');
+
   return {
     type: SIGNIN_SUCCESS,
     username: data.username
