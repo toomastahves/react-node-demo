@@ -20,7 +20,7 @@ export const Menu = (props) => {
     userinfo = (
       <ul className='pure-menu-list'>
         <li className='pure-menu-item'>{props.username}</li>
-        <li className='pure-menu-item'><a onClick={handleSignout.bind(this, props)} className='pure-menu-link'>{'Signout'}</a></li>
+        <li className='pure-menu-item'><a onClick={handleSignout.bind(this, props)} href='#' className='pure-menu-link'>{'Signout'}</a></li>
       </ul>
     );
   }

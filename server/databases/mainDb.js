@@ -1,4 +1,7 @@
 import mongoose from 'mongoose';
+import bluebird from 'bluebird';
+mongoose.Promise = bluebird;
+
 import config from '../config/';
 
 const connectToMainDatabase = () => {

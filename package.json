@@ -50,6 +50,7 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "bcryptjs": "^2.3.0",
+    "bluebird": "^3.2.2",
     "body-parser": "^1.14.2",
     "chart.js": "^1.0.2",
     "compression": "^1.6.1",
