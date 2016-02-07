@@ -178,7 +178,7 @@
     "max-nested-callbacks": 0,
     "max-params": 0,
     "max-statements": 0,
-    "new-cap": 1,
+    "new-cap": 0,
     "new-parens": 1,
     "newline-after-var": 0,
     "no-array-constructor": 1,
@@ -278,7 +278,6 @@
     "react/wrap-multilines": 1,
 
     "babel/generator-star-spacing": 1,
-    "babel/new-cap": 1,
     "babel/array-bracket-spacing": 0,
     "babel/object-curly-spacing": 0,
     "babel/object-shorthand": 1,

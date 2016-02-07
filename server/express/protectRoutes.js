@@ -11,5 +11,5 @@ export const isAuthenticated = (req, res, next) => {
   if(result)
     return next();
 
-  return res.status(401).send({ error: 'Not authenticated' });
+  return res.status(401).send({ error: 'Limbo' });
 };

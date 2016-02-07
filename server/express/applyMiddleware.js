@@ -13,7 +13,11 @@ export const applyMiddleware = (app) => {
   app.use(bodyParser.json());
 
   if(process.env.NODE_ENV !== 'production') {
-    app.use(helmet.frameguard('allow-from', `*`));
+    app.use((req, res, next) => {
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+      next();
+    });
   }
 
 };

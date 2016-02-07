@@ -2,7 +2,7 @@
   margin: 0;
   color: #333;
   text-align: center;
-  padding: 2.5em 2em 0;
+  padding: 1em 1em 0;
   border-bottom: 1px solid #eee;
   background-color: rgb(235, 231, 231);
 }
@@ -14,6 +14,11 @@
 .header h2 {
   font-weight: 300;
   color: #ccc;
+  padding: 0;
+  margin-top: 0;
+}
+.header h3 {
+  font-weight: 300;
   padding: 0;
   margin-top: 0;
 }
