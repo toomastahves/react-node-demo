@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -19,7 +20,7 @@ module.exports = {
       { test: /\.jsx?$/, loaders: ['babel'], include: path.join(__dirname, 'client') },
       { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
       { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&minetype=application/font-woff' },
-      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' }
+      { test: /\.(jpg|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' }
     ]
   }
 };
