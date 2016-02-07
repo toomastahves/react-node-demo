@@ -9,7 +9,6 @@ const handleSignout = (props, e) => {
 };
 
 export const Menu = (props) => {
-  console.log(props);
   let userinfo = (
     <ul className='pure-menu-list'>
       <li className='pure-menu-item'><a href='#signin' className='pure-menu-link'>{'Signin'}</a></li>
