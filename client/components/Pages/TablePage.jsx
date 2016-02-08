@@ -16,21 +16,19 @@ export const TablePage = (props) => {
     props.deletePet(_id);
   };
   props.pets.map(p => {
-    p.updated_at = fecha.format(new Date(p.updated_at), 'DD/MM/YY hh:mm:ss');
+    p.updated_at = fecha.format(new Date(p.updated_at), 'DD MMM hh:mm:ss');
     p.remove = <div className='delete-button' onClick={handleDelete.bind(null, p._id)}>{'X'}</div>;
     return p;
   });
   return (
     <div>
-      <div>
-        <SubHeader header={'Table demo'} description={'Created using reactable library'} />
-        <div className='content'>
-          <div className='content-subheader'>
-            {'Table'}
-          </div>
-          <div className='content-subcontent'>
-            <CreatePetForm />
-          </div>
+      <SubHeader header={'Table demo'} description={'Created using reactable library'} />
+      <div className='content'>
+        <div className='content-subheader'>
+          {'Pets CRUD. Sign in to modify data.'}
+        </div>
+        <CreatePetForm />
+        <div>
           <Table
             className='pure-table pure-table-horizontal table-wrap'
             sortable={true}
@@ -38,11 +36,17 @@ export const TablePage = (props) => {
             noDataText='No matching records found.'
             itemsPerPage={5} pageButtonLimit={3}
             data={props.pets}
-            filterable={['name']}
+            filterable={['name', 'species']}
           >
             <Thead>
               <Th column='name'>
                 <strong className='name-header'>{'Name'}</strong>
+              </Th>
+              <Th column='species'>
+                <strong className='species-header'>{'Species'}</strong>
+              </Th>
+              <Th column='homestatus'>
+                <strong className='homestatus-header'>{'Homestatus'}</strong>
               </Th>
               <Th column='updated_at'>
                 <strong className='age-header'>{'Updated'}</strong>

@@ -35,9 +35,7 @@ export const createPet = (pet) => {
         'Content-Type': 'application/json',
         'x-access-token': token
       },
-      body: JSON.stringify({
-        name: pet.name
-      })
+      body: JSON.stringify(pet)
     })
     .then(response => response.json())
     .then(savedPet => dispatch(createPetSuccess(savedPet)))

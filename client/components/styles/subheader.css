@@ -4,7 +4,7 @@
   text-align: center;
   padding: 1em 1em 0;
   border-bottom: 1px solid #eee;
-  background-color: rgb(235, 231, 231);
+  background-color: rgb(199, 198, 198);
 }
 .header h1 {
   margin: 0.2em 0;
@@ -13,7 +13,7 @@
 }
 .header h2 {
   font-weight: 300;
-  color: #ccc;
+  color: rgb(80, 80, 80);
   padding: 0;
   margin-top: 0;
 }

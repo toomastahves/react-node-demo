@@ -7,6 +7,9 @@ import 'purecss/build/pure-min.css';
 import 'purecss/build/grids-responsive-min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './global.css';
+import { signinJWT } from './actions/signin';
+
+store.dispatch(signinJWT());
 
 ReactDOM.render(
   <Provider store={store}>
@@ -14,6 +17,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-
-import { signinJWT } from './actions/signin';
-store.dispatch(signinJWT());

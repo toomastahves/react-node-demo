@@ -1,6 +1,8 @@
 import React from 'react';
 import Menu from '../Parts/Menu';
 import Footer from '../Parts/Footer';
+import '../styles/github.css';
+import GithubRibbon from '../Parts/GithubRibbon';
 
 export const ContentLayout = (SubComponent) => {
 
@@ -10,6 +12,7 @@ export const ContentLayout = (SubComponent) => {
         <Menu />
         <SubComponent {...props} />
         <Footer />
+        <GithubRibbon />
       </div>
     );
   };

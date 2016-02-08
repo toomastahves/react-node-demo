@@ -4,6 +4,7 @@ import Banner from '../Parts/Banner';
 import BoxWrap from '../Parts/BoxWrap';
 import CardWrap from '../Parts/CardWrap';
 import Footer from '../Parts/Footer';
+import GithubRibbon from '../Parts/GithubRibbon';
 
 export const HomeLayout = () => {
 
@@ -15,6 +16,7 @@ export const HomeLayout = () => {
         <BoxWrap />
         <CardWrap />
         <Footer />
+        <GithubRibbon />
       </div>
     );
   };

@@ -1,5 +1,15 @@
-.add-form-wrap {
+.create-pet-input-wrap {
   margin: 0 auto;
-  max-width: 380px;
-  align-items: center;
+  max-width: 300px;
+}
+
+.create-pet-form-wrap {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  background-color: rgb(199, 198, 198);
+}
+
+.selectbox-aligned {
+  width: 100%;
 }

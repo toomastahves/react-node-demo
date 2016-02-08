@@ -1,18 +1,13 @@
-.content-subheader {
-  margin: 50px 0 20px 0;
-  font-size: 1.4em;
-  color: #888;
-}
-.content-subcontent {
-  margin: 10px;
-  max-width: 980px;
-  margin: 10px auto;
-  text-align: center;
-}
 .content {
   margin: 0 auto;
   padding: 0 2em;
-  max-width: 800px;
+  max-width: 980px;
   margin-bottom: 50px;
   line-height: 1.6em;
+}
+
+.content-subheader {
+  margin: 20px 0 20px 0;
+  font-size: 1.4em;
+  color: #888;
 }

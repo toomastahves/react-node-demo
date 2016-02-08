@@ -32,12 +32,13 @@ export const getPet = (req, res) => {
 export const createPet = (req, res) => {
 
   const name = req.body.name;
+  const species = req.body.species;
+  const homestatus = req.body.homestatus;
 
-  if(!name)
+  if(!name || !species || !homestatus)
     return res.status(422).send({ error: 'Problem with params' });
 
-  const p = new Pet();
-  p.name = name;
+  const p = new Pet(req.body);
 
   p.save((err, result) => {
     if(err)

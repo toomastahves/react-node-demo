@@ -6,14 +6,19 @@ const Pet = new Schema({
     type: String,
     required: true
   },
+  species: {
+    type: String,
+    required: true
+  },
+  homestatus: {
+    type: Boolean,
+    required: true
+  },
   created_at: {
     type: Date
   },
   updated_at: {
     type: Date
-  },
-  species: {
-    type: String
   }
 });
 

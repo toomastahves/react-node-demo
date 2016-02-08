@@ -1,0 +1,20 @@
+.chart-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chart-item {
+  display: inline-block;
+  flex-grow: 1;
+  width: 50%;
+}
+
+@media(max-width: 767px) {
+  .chart-content {
+    flex-direction: column;
+  }
+  .chart-item {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
