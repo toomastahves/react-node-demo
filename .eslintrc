@@ -94,7 +94,7 @@
     "no-extra-bind": 1,
     "no-fallthrough": 1,
     "no-floating-decimal": 1,
-    "no-implicit-coercion": 1,
+    "no-implicit-coercion": 0,
     "no-implied-eval": 1,
     "no-invalid-this": 0,
     "no-iterator": 1,

@@ -6,6 +6,10 @@ const Pet = new Schema({
     type: String,
     required: true
   },
+  age: {
+    type: Number,
+    required: true
+  },
   species: {
     type: String,
     required: true

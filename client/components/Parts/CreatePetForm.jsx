@@ -7,15 +7,18 @@ export const CreatePetForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const nameNode = e.target.querySelector('[name="newpet"]');
+    const ageNode = e.target.querySelector('[name="age"]');
     const speciesNode = e.target.querySelector('[name="species"]');
     const homestatusNode = e.target.querySelector('[name="homestatus"]');
     const pet = {
       name: nameNode.value,
+      age: ageNode.value,
       species: speciesNode.value,
       homestatus: homestatusNode.value
     };
     props.dispatch(createPet(pet));
     nameNode.value = '';
+    ageNode.value = '';
     speciesNode.value = '';
     homestatusNode.value = '0';
   };
@@ -26,6 +29,9 @@ export const CreatePetForm = (props) => {
           <div className='create-pet-input-wrap'>
             <div className='pure-control-group'>
               <input className='selectbox-aligned' name='newpet' type='text' placeholder={'Name'} />
+            </div>
+            <div className='pure-control-group'>
+              <input className='selectbox-aligned' name='age' type='text' placeholder={'Age'} />
             </div>
             <div className='pure-control-group'>
               <select className='selectbox-aligned' name='species'>

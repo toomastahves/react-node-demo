@@ -42,6 +42,9 @@ export const TablePage = (props) => {
               <Th column='name'>
                 <strong className='name-header'>{'Name'}</strong>
               </Th>
+              <Th column='age'>
+                <strong className='age-header'>{'Age'}</strong>
+              </Th>
               <Th column='species'>
                 <strong className='species-header'>{'Species'}</strong>
               </Th>
