@@ -1,9 +1,7 @@
 import React from 'react';
-import './pages.css';
-import CardWrap from '../../Info/Card/CardWrap';
-import BoxWrap from '../../Info/Box/BoxWrap';
-import ContentLayout from '../../Layouts/Content';
-import SubHeader from '../../SubHeader/SubHeader';
+import '../styles/pages.css';
+import ContentLayout from '../Layouts/Content';
+import SubHeader from '../Parts/SubHeader';
 
 export const About = () => {
   return (
@@ -25,8 +23,6 @@ export const About = () => {
           </div>
         </div>
       </div>
-      <CardWrap />
-      <BoxWrap />
     </div>
   );
 };

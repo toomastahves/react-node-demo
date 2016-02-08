@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from './Box';
-import './box.css';
+import '../styles/box.css';
 
 export const BoxWrap = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signout } from '../../actions/signout';
-import './menu.css';
+import '../styles/menu.css';
 
 const handleSignout = (props, e) => {
   e.preventDefault();

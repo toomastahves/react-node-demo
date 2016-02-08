@@ -1,7 +1,7 @@
 import { SIGNIN_REQUEST, SIGNIN_SUCCESS, SIGNIN_ERROR, LOCALSTORAGE_TOKEN_KEY } from '../constants/auth';
 import { SERVER_URI } from '../constants/uri';
 import fetch from 'isomorphic-fetch';
-import { setValue } from '../services/storage';
+import { setValue, getValue } from '../services/storage';
 import { hashHistory } from 'react-router';
 
 export const signinRequest = () => {
@@ -19,7 +19,7 @@ export const signinResponse = (data) => {
 
   setValue(LOCALSTORAGE_TOKEN_KEY, data.token);
 
-  hashHistory.replace('home');
+  // hashHistory.replace('home');
 
   return {
     type: SIGNIN_SUCCESS,
@@ -54,7 +54,10 @@ export const signin = (user) => {
   };
 };
 
-export const signinJWT = (token) => {
+export const signinJWT = () => {
+  const token = getValue(LOCALSTORAGE_TOKEN_KEY);
+  if(!token) return dispatch => {};
+
   return dispatch => {
     dispatch(signinRequest());
     return fetch(`${SERVER_URI}/auth/signinjwt`, {
@@ -62,7 +65,7 @@ export const signinJWT = (token) => {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'x-access-token': token.token
+        'x-access-token': token
       }
     })
     .then(response => response.json())

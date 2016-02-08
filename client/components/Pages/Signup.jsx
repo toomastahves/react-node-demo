@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { AuthLayout } from '../../Layouts/Auth';
-import { signup } from '../../../actions/signup';
-import './auth.css';
-
-const handleSubmit = (props, e) => {
-  e.preventDefault();
-  const username = e.target.querySelector('[name="username"]').value;
-  const password = e.target.querySelector('[name="password"]').value;
-  props.dispatch(signup({ username, password }));
-};
+import ContentLayout from '../Layouts/Content';
+import { signup } from '../../actions/signup';
+import '../styles/auth.css';
 
 export const Signup = (props) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const username = e.target.querySelector('[name="username"]').value;
+    const password = e.target.querySelector('[name="password"]').value;
+    props.dispatch(signup({ username, password }));
+  };
+
   return (
     <div>
-      <form onSubmit={handleSubmit.bind(this, props)} className='flex-form-container pure-form'>
+      <form onSubmit={handleSubmit} className='flex-form-container pure-form'>
         <div className='flex-form-item'>
           {props.error}
         </div>
@@ -31,10 +31,14 @@ export const Signup = (props) => {
   );
 };
 
+Signup.propTypes = {
+  error: PropTypes.string
+};
+
 const mapStateToProps = (state) => {
   return {
     error: state.authReducer.error
   };
 };
 
-export default connect(mapStateToProps)(AuthLayout(Signup));
+export default connect(mapStateToProps)(ContentLayout(Signup));

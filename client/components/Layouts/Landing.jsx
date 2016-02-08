@@ -1,8 +1,9 @@
 import React from 'react';
-import Menu from '../Menu/';
-import Banner from '../Banner/';
-import Info from '../Info/';
-import Footer from '../Footer';
+import Menu from '../Parts/Menu';
+import Banner from '../Parts/Banner';
+import BoxWrap from '../Parts/BoxWrap';
+import CardWrap from '../Parts/CardWrap';
+import Footer from '../Parts/Footer';
 
 export const HomeLayout = () => {
 
@@ -11,7 +12,8 @@ export const HomeLayout = () => {
       <div>
         <Menu />
         <Banner />
-        <Info />
+        <BoxWrap />
+        <CardWrap />
         <Footer />
       </div>
     );

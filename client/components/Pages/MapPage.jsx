@@ -1,8 +1,8 @@
 import React from 'react';
-import './pages.css';
+import '../styles/pages.css';
 import { Gmaps, Marker, InfoWindow, Circle } from 'react-gmaps';
-import ContentLayout from '../../Layouts/Content';
-import SubHeader from '../../SubHeader/SubHeader';
+import ContentLayout from '../Layouts/Content';
+import SubHeader from '../Parts/SubHeader';
 
 const coords = {
   lat: 51.5258541,

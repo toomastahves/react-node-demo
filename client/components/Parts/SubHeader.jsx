@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import './subheader.css';
+import '../styles//subheader.css';
 
 export const SubHeader = (props) => {
   return (

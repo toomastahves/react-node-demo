@@ -1,10 +1,8 @@
 import React from 'react';
-import Menu from '../../Menu/';
-import Footer from '../../Footer';
-import './pages.css';
+import '../styles/pages.css';
 import { Line } from 'react-chartjs';
-import ContentLayout from '../../Layouts/Content';
-import SubHeader from '../../SubHeader/SubHeader';
+import ContentLayout from '../Layouts/Content';
+import SubHeader from '../Parts/SubHeader';
 
 const chartData = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],

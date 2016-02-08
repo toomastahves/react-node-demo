@@ -3,12 +3,12 @@ import { Router, Route, IndexRoute, useRouterHistory } from 'react-router';
 import { createHashHistory } from 'history';
 import App from '../components/App';
 import Home from '../components/Pages/Home';
-import Chart from '../components/Pages/Content/Chart';
-import Table from '../components/Pages/Content/Table';
-import Map from '../components/Pages/Content/Map';
-import About from '../components/Pages/Content/About';
-import Signup from '../components/Pages/Auth/Signup';
-import Signin from '../components/Pages/Auth/Signin';
+import ChartPage from '../components/Pages/ChartPage';
+import TablePage from '../components/Pages/TablePage';
+import MapPage from '../components/Pages/MapPage';
+import AboutPage from '../components/Pages/AboutPage';
+import Signup from '../components/Pages/Signup';
+import Signin from '../components/Pages/Signin';
 import useScroll from 'scroll-behavior/lib/useStandardScroll';
 
 const history = useScroll(createHashHistory);
@@ -20,10 +20,10 @@ export const Routes = () => {
       <Route path='/' components={App} >
         <IndexRoute component={Home} />
         <Route path='home' component={Home} />
-        <Route path='chart' component={Chart} />
-        <Route path='table' component={Table} />
-        <Route path='map' component={Map} />
-        <Route path='about' component={About} />
+        <Route path='chart' component={ChartPage} />
+        <Route path='table' component={TablePage} />
+        <Route path='map' component={MapPage} />
+        <Route path='about' component={AboutPage} />
         <Route path='signup' component={Signup} />
         <Route path='signin' component={Signin} />
       </Route>

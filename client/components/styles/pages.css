@@ -4,7 +4,10 @@
   color: #888;
 }
 .content-subcontent {
-
+  margin: 10px;
+  max-width: 980px;
+  margin: 10px auto;
+  text-align: center;
 }
 .content {
   margin: 0 auto;

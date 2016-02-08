@@ -14,3 +14,6 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+import { signinJWT } from './actions/signin';
+store.dispatch(signinJWT());

@@ -6,9 +6,24 @@ const Pet = new Schema({
     type: String,
     required: true
   },
+  created_at: {
+    type: Date
+  },
+  updated_at: {
+    type: Date
+  },
   species: {
     type: String
   }
+});
+
+Pet.pre('save', function(next) {
+  const now = new Date();
+  this.updated_at = now;
+  if(!this.created_at) {
+    this.created_at = now;
+  }
+  next();
 });
 
 export default db.model('Pet', Pet);

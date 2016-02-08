@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './Card';
-import './card.css';
+import '../styles/card.css';
 
 export const CardsWrap = () => {
   return (

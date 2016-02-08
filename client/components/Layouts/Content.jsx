@@ -1,6 +1,6 @@
 import React from 'react';
-import Menu from '../Menu/';
-import Footer from '../Footer';
+import Menu from '../Parts/Menu';
+import Footer from '../Parts/Footer';
 
 export const ContentLayout = (SubComponent) => {
 

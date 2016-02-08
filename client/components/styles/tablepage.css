@@ -1,0 +1,53 @@
+.table-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  margin-bottom: 3.125em;
+  text-align: center;
+}
+
+.reactable-header-sortable {
+  text-align: center;
+  cursor: pointer;
+}
+
+.reactable-pagination > tr > td > a {
+  text-decoration: none;
+  color: black;
+  padding: 3px;
+}
+
+.reactable-current-page {
+  background-color: rgb(203, 211, 217);
+}
+
+.reactable-page-button {
+
+}
+
+.reactable-current-page {
+
+}
+
+.reactable-next-page {
+
+}
+
+.reactable-previous-page {
+
+}
+
+.reactable-filterer {
+
+}
+
+.reactable-filter-input {
+  width: 100%;
+}
+
+.delete-button {
+  cursor: pointer;
+  font-size: 1.2em;
+}
+.delete-button:hover {
+  color: red;
+}
