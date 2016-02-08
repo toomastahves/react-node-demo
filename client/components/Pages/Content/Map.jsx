@@ -1,8 +1,8 @@
 import React from 'react';
-import Menu from '../Menu/';
-import Footer from '../Footer';
 import './pages.css';
 import { Gmaps, Marker, InfoWindow, Circle } from 'react-gmaps';
+import ContentLayout from '../../Layouts/Content';
+import SubHeader from '../../SubHeader/SubHeader';
 
 const coords = {
   lat: 51.5258541,
@@ -12,12 +12,8 @@ const coords = {
 export const Map = () => {
   return (
     <div>
-      <Menu />
       <div>
-        <div className='header'>
-          <h1>{'About demo app'}</h1>
-          <h2>{'Basic web application'}</h2>
-        </div>
+        <SubHeader header={'Map demo'} description={'Created using react-gmaps library'} />
         <div className='content'>
           <div className='content-subheader'>
             {'Front-end'}
@@ -51,9 +47,8 @@ export const Map = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
 
-export default Map;
+export default ContentLayout(Map);

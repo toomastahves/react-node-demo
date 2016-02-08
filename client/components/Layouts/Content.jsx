@@ -4,17 +4,16 @@ import Footer from '../Footer';
 
 export const ContentLayout = (SubComponent) => {
 
-  const A = (props) => {
-    const data = 'hello';
+  const Sub = (props) => {
     return (
       <div>
         <Menu />
-        <SubComponent {...props} data={data} />
+        <SubComponent {...props} />
         <Footer />
       </div>
     );
   };
-  return A;
+  return Sub;
 
 };
 

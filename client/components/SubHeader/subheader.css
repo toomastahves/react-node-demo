@@ -22,19 +22,3 @@
   padding: 0;
   margin-top: 0;
 }
-
-.content-subheader {
-  margin: 50px 0 20px 0;
-  font-size: 1.4em;
-  color: #888;
-}
-.content-subcontent {
-
-}
-.content {
-  margin: 0 auto;
-  padding: 0 2em;
-  max-width: 800px;
-  margin-bottom: 50px;
-  line-height: 1.6em;
-}

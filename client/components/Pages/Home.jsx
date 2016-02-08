@@ -1,18 +1,10 @@
 import React from 'react';
-import Menu from '../Menu/';
-import Banner from '../Banner/';
-import Info from '../Info/';
-import Footer from '../Footer';
+import Landing from '../Layouts/Landing';
 
 export const Home = () => {
   return (
-    <div>
-      <Menu />
-      <Banner />
-      <Info />
-      <Footer />
-    </div>
+    <div></div>
   );
 };
 
-export default Home;
+export default Landing(Home);

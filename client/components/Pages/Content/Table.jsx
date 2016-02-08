@@ -1,9 +1,9 @@
 import React from 'react';
-import Menu from '../Menu/';
-import Footer from '../Footer';
 import './pages.css';
 import { Table } from 'reactable';
 import './table.css';
+import ContentLayout from '../../Layouts/Content';
+import SubHeader from '../../SubHeader/SubHeader';
 
 const pets = [
   { _id: 'asd', name: 'fluffy' },
@@ -31,12 +31,8 @@ const pets = [
 export const TablePage = () => {
   return (
     <div>
-      <Menu />
       <div>
-        <div className='header'>
-          <h1>{'Table demo'}</h1>
-          <h2>{'Basic table demo using reactable library'}</h2>
-        </div>
+        <SubHeader header={'Table demo'} description={'Created using reactable library'} />
         <div className='content'>
           <div className='content-subheader'>
             {'Table'}
@@ -50,10 +46,9 @@ export const TablePage = () => {
             data={pets}
           />
         </div>
-        <Footer />
       </div>
     </div>
   );
 };
 
-export default TablePage;
+export default ContentLayout(TablePage);

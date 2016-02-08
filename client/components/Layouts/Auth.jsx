@@ -4,7 +4,7 @@ import Footer from '../Footer';
 
 export const AuthLayout = (SubComponent) => {
 
-  const A = (props) => {
+  const Sub = (props) => {
     return (
       <div>
         <Menu />
@@ -13,7 +13,7 @@ export const AuthLayout = (SubComponent) => {
       </div>
     );
   };
-  return A;
+  return Sub;
 
 };
 

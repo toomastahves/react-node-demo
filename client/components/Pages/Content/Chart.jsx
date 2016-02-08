@@ -1,8 +1,10 @@
 import React from 'react';
-import Menu from '../Menu/';
-import Footer from '../Footer';
+import Menu from '../../Menu/';
+import Footer from '../../Footer';
 import './pages.css';
 import { Line } from 'react-chartjs';
+import ContentLayout from '../../Layouts/Content';
+import SubHeader from '../../SubHeader/SubHeader';
 
 const chartData = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -33,12 +35,8 @@ const chartData = {
 export const Chart = () => {
   return (
     <div>
-      <Menu />
+      <SubHeader header={'Chart demo'} description={'Created using react-chartjs library'} />
       <div>
-        <div className='header'>
-          <h1>{'Chart demo'}</h1>
-          <h2>{'Created using react-chartjs library'}</h2>
-        </div>
         <div className='content'>
           <div className='content-subheader'>
             {'Line chart'}
@@ -48,9 +46,8 @@ export const Chart = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
 
-export default Chart;
+export default ContentLayout(Chart);
