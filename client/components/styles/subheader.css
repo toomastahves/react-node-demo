@@ -1,6 +1,7 @@
 .header {
+  background: transparent url('highway.jpg') 0 0 no-repeat fixed;
   margin: 0;
-  color: #333;
+  color: white;
   text-align: center;
   padding: 1em 1em 0;
   border-bottom: 1px solid #eee;
@@ -13,7 +14,7 @@
 }
 .header h2 {
   font-weight: 300;
-  color: rgb(80, 80, 80);
+  color: rgb(186, 178, 178);
   padding: 0;
   margin-top: 0;
 }

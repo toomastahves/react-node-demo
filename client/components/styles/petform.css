@@ -1,14 +1,9 @@
 .create-pet-input-wrap {
   margin: 0 auto;
   max-width: 300px;
+  background-color: rgb(223, 221, 220);
 }
 
-.create-pet-form-wrap {
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  background-color: rgb(199, 198, 198);
-}
 
 .selectbox-aligned {
   width: 100%;
@@ -16,4 +11,8 @@
 
 .coordinate-input {
   width: 50%;
+}
+
+.button-secondary {
+  background-color: rgb(66, 184, 221) !important;
 }

@@ -18,6 +18,7 @@ export const HandleTable = (props) => {
     p.remove = <div className='delete-button' onClick={handleDelete.bind(null, p._id)}>{'X'}</div>;
     return p;
   });
+
   return (
     <div>
       <Table
@@ -48,9 +49,12 @@ export const HandleTable = (props) => {
           <Th column='updated_at'>
             <strong className='age-header'>{'Updated'}</strong>
           </Th>
-          <Th column='remove'>
-            <strong className='remove-header'>{'X'}</strong>
-          </Th>
+          {() => {
+            if(props.username !== '')
+              <Th column='remove'>
+                <strong className='remove-header'>{'X'}</strong>
+              </Th>;
+          }}
         </Thead>
       </Table>
     </div>
@@ -58,7 +62,8 @@ export const HandleTable = (props) => {
 };
 
 HandleTable.propTypes = {
-  pets: PropTypes.array.isRequired
+  pets: PropTypes.array.isRequired,
+  username: PropTypes.string
 };
 
 const mapStateToProps = (state) => {

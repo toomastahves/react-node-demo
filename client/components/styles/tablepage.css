@@ -1,5 +1,5 @@
 .table-wrap {
-  margin: 250px auto;
+  margin: 0 auto;
   margin-bottom: 3.125em;
   text-align: center;
 }
@@ -41,6 +41,10 @@
 
 .reactable-filter-input {
   width: 100%;
+}
+
+table > tbody > tr:hover {
+  background-color: rgb(215, 215, 215);
 }
 
 .delete-button {

@@ -2,7 +2,6 @@
   background: transparent url('banner.jpg') 0 0 no-repeat fixed;
   text-align: center;
   background-size: cover;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='banner.jpg', sizingMethod='scale');
 
   height: 150px;
   width: 100%;

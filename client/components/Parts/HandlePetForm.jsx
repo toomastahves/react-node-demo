@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import '../styles/createpetform.css';
+import '../styles/petform.css';
 import { connect } from 'react-redux';
 import { createPet } from '../../actions/createPet';
 import DatePicker from 'react-datepicker';
@@ -42,7 +42,7 @@ export class HandlePetForm extends Component {
   };
   render() {
     return (
-      <div className='create-pet-form-wrap'>
+      <div>
         <form onSubmit={this.handleSubmit} className='pure-form'>
           <fieldset>
             <div className='create-pet-input-wrap'>
@@ -76,7 +76,7 @@ export class HandlePetForm extends Component {
                 <input className='coordinate-input' type='text' name='lng' placeholder='lng' />
               </div>
               <div className='pure-control-group'>
-                <button className='pure-input-1 pure-button' type='submit'>{'Add'}</button>
+                <button className='pure-input-1 pure-button button-secondary' type='submit'>{'Add'}</button>
               </div>
             </div>
           </fieldset>

@@ -1,24 +1,35 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import '../styles/pages.css';
 import '../styles/tablepage.css';
 import ContentLayout from '../Layouts/Content';
 import SubHeader from '../Parts/SubHeader';
 import HandlePetForm from '../Parts/HandlePetForm';
 import HandleTable from '../Parts/HandleTable';
+import { connect } from 'react-redux';
 
-export const TablePage = () => {
+export const TablePage = (props) => {
   return (
     <div>
       <SubHeader header={'Table demo'} description={'Created using reactable library'} />
       <div className='content'>
         <div className='content-subheader'>
-          {'Pets manager. Sign in to modify data.'}
+          {'Pets table.'}
         </div>
-        <HandlePetForm />
-        <HandleTable />
+        {props.username && <HandlePetForm />}
+        <HandleTable username={props.username} />
       </div>
     </div>
   );
 };
 
-export default ContentLayout(TablePage);
+TablePage.propTypes = {
+  username: PropTypes.string
+};
+
+const mapStateToProps = (state) => {
+  return {
+    username: state.authReducer.username
+  };
+};
+
+export default connect(mapStateToProps)(ContentLayout(TablePage));
