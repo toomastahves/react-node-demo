@@ -34,9 +34,9 @@ export const createPet = (req, res) => {
   const name = req.body.name;
   const species = req.body.species;
   const homestatus = req.body.homestatus;
-  const age = req.body.age;
+  const birthday = req.body.birthday;
 
-  if(!name || !species || !homestatus || !age)
+  if(!name || !species || !homestatus || !birthday)
     return res.status(422).send({ error: 'Problem with params' });
 
   const p = new Pet(req.body);

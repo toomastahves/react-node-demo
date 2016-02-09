@@ -13,13 +13,13 @@ export const About = () => {
             {'Front-end'}
           </div>
           <div className='content-subcontent'>
-            {'Descibe later'}
+            {'Describe later'}
           </div>
           <div className='content-subheader'>
             {'Back-end'}
           </div>
           <div className='content-subcontent'>
-            {'Descibe later'}
+            {'Describe later'}
           </div>
         </div>
       </div>

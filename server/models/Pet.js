@@ -6,8 +6,8 @@ const Pet = new Schema({
     type: String,
     required: true
   },
-  age: {
-    type: Number,
+  birthday: {
+    type: Date,
     required: true
   },
   species: {
@@ -17,6 +17,12 @@ const Pet = new Schema({
   homestatus: {
     type: Boolean,
     required: true
+  },
+  lat: {
+    type: Number
+  },
+  lng: {
+    type: Number
   },
   created_at: {
     type: Date

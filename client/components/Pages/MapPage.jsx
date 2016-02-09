@@ -1,13 +1,8 @@
 import React from 'react';
 import '../styles/pages.css';
-import { Gmaps, Marker, InfoWindow, Circle } from 'react-gmaps';
 import ContentLayout from '../Layouts/Content';
 import SubHeader from '../Parts/SubHeader';
-
-const coords = {
-  lat: 51.5258541,
-  lng: -0.08040660000006028
-};
+import HandleMap from '../Parts/HandleMap';
 
 export const Map = () => {
   return (
@@ -18,33 +13,7 @@ export const Map = () => {
           <div className='content-subheader'>
             {'Front-end'}
           </div>
-          <div>
-            <Gmaps
-              width={'400px'}
-              height={'400px'}
-              lat={coords.lat}
-              lng={coords.lng}
-              zoom={12}
-              loadingMessage={'Be happy'}
-              params={{ v: '3.exp' }}
-            >
-              <Marker
-                lat={coords.lat}
-                lng={coords.lng}
-                draggable={true}
-              />
-              <InfoWindow
-                lat={coords.lat}
-                lng={coords.lng}
-                content={'Hello, React :)'}
-              />
-              <Circle
-                lat={coords.lat}
-                lng={coords.lng}
-                radius={500}
-              />
-            </Gmaps>
-          </div>
+          <HandleMap />
         </div>
       </div>
     </div>

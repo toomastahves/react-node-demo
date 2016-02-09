@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route, IndexRoute, useRouterHistory } from 'react-router';
 import { createHashHistory } from 'history';
 import App from '../components/App';
-import Home from '../components/Pages/Home';
+import HomePage from '../components/Pages/HomePage';
 import ChartPage from '../components/Pages/ChartPage';
 import TablePage from '../components/Pages/TablePage';
 import MapPage from '../components/Pages/MapPage';
@@ -18,8 +18,8 @@ export const Routes = () => {
   return (
     <Router history={appHistory}>
       <Route path='/' components={App} >
-        <IndexRoute component={Home} />
-        <Route path='home' component={Home} />
+        <IndexRoute component={HomePage} />
+        <Route path='home' component={HomePage} />
         <Route path='chart' component={ChartPage} />
         <Route path='table' component={TablePage} />
         <Route path='map' component={MapPage} />
