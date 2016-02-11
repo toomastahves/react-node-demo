@@ -7,16 +7,17 @@ import config from '../config/';
 export const connectToMainDatabase = () => {
 
   const url = process.env.MONGOLAB_URI || config.MONGOLAB_URI;
-  const db = mongoose.createConnection();
+
   try {
-    db.open(url, (err) => {
-      console.log('open', err);
-    })
-    .then((res) => {
-      console.log('then', res);
-    })
-    .catch((err) => {
-      console.log('catch', err);
+    mongoose.connect(url);
+    mongoose.connection.on('connected', () => {
+      console.log('Mongoose default connection open to ', url);
+    });
+    mongoose.connection.on('error', (err) => {
+      console.log('Mongoose default connection error: ', err);
+    });
+    mongoose.connection.on('disconnected', () => {
+      console.log('Mongoose default connection disconnected');
     });
   } catch(err) {
     console.log('Error connecting mongodb connectToMainDatabase. Check connection string.');

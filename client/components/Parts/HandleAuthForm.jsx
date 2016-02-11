@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-export class HandleSignForm extends Component {
+export class HandleAuthForm extends Component {
   render() {
     return (
       <div>{''}</div>
@@ -8,8 +8,8 @@ export class HandleSignForm extends Component {
   }
 }
 
-HandleSignForm.propTypes = {
+HandleAuthForm.propTypes = {
 
 };
 
-export default HandleSignForm;
+export default HandleAuthForm;

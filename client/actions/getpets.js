@@ -3,7 +3,6 @@ import { SERVER_URI } from '../constants/uri';
 import fetch from 'isomorphic-fetch';
 
 export const getPetsSuccess = (pets) => {
-
   return {
     type: GET_PETS_SUCCESS,
     pets
