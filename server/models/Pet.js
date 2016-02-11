@@ -1,5 +1,4 @@
-import { Schema } from 'mongoose';
-import db from '../databases/mainDb';
+import mongoose, { Schema } from 'mongoose';
 
 const Pet = new Schema({
   name: {
@@ -41,4 +40,5 @@ Pet.pre('save', function(next) {
   next();
 });
 
-export default db.model('Pet', Pet);
+
+export default mongoose.model('Pet', Pet);

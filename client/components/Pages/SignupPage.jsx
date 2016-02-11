@@ -4,7 +4,7 @@ import ContentLayout from '../Layouts/Content';
 import { signup } from '../../actions/signup';
 import '../styles/auth.css';
 
-export const Signup = (props) => {
+export const SignupPage = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const username = e.target.querySelector('[name="username"]').value;
@@ -31,7 +31,7 @@ export const Signup = (props) => {
   );
 };
 
-Signup.propTypes = {
+SignupPage.propTypes = {
   error: PropTypes.string
 };
 
@@ -41,4 +41,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ContentLayout(Signup));
+export default connect(mapStateToProps)(ContentLayout(SignupPage));

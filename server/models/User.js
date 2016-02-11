@@ -1,6 +1,5 @@
-import { Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import { createSalt } from '../helpers/salt';
-import db from '../databases/mainDb';
 
 const User = new Schema({
   username: {
@@ -32,4 +31,4 @@ User.pre('save', function(next) {
   next();
 });
 
-export default db.model('User', User);
+export default mongoose.model('User', User);

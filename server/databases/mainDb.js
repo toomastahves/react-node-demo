@@ -4,17 +4,21 @@ mongoose.Promise = bluebird;
 
 import config from '../config/';
 
-const connectToMainDatabase = () => {
+export const connectToMainDatabase = () => {
+
   const url = process.env.MONGOLAB_URI || config.MONGOLAB_URI;
-  const conn = mongoose.createConnection(url);
+  const db = mongoose.createConnection();
   try {
-    conn.on('connected', () => {
-      console.log('Connected to mongodb connectToMainDatabase.');
+    db.open(url, (err) => {
+      console.log('open', err);
+    })
+    .then((res) => {
+      console.log('then', res);
+    })
+    .catch((err) => {
+      console.log('catch', err);
     });
-    return conn;
-  } catch(e) {
+  } catch(err) {
     console.log('Error connecting mongodb connectToMainDatabase. Check connection string.');
   }
 };
-
-export default connectToMainDatabase();

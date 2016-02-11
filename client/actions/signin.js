@@ -28,6 +28,7 @@ export const signinResponse = (data) => {
 };
 
 export const signinError = (error) => {
+  console.log('error', error);
   return {
     type: SIGNIN_ERROR,
     error

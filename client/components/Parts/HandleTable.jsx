@@ -6,11 +6,13 @@ import { bindActionCreators } from 'redux';
 import { getPets } from '../../actions/getpets';
 import { deletePet } from '../../actions/deletePet';
 
-export const HandleTable = (props) => {
+export const HandleTable = ({ pets, username, fetching, deletePet }) => {
+  if(fetching) return <div>{'Loading...'}</div>;
+
   const handleDelete = (_id) => {
-    props.deletePet(_id);
+    deletePet(_id);
   };
-  props.pets.map(p => {
+  pets.map(p => {
     p.location = [ p.lat, p.lng ];
     p.homestatus = p.homestatus ? 'Has home' : 'Homeless';
     p.birthday = fecha.format(new Date(p.birthday), 'DD MMM YYYY');
@@ -18,6 +20,7 @@ export const HandleTable = (props) => {
     p.remove = <div className='delete-button' onClick={handleDelete.bind(null, p._id)}>{'X'}</div>;
     return p;
   });
+
 
   return (
     <div>
@@ -27,7 +30,7 @@ export const HandleTable = (props) => {
         defaultSort={{ column: 'updated_at', direction: 'desc' }}
         noDataText='No matching records found.'
         itemsPerPage={5} pageButtonLimit={3}
-        data={props.pets}
+        data={pets}
         filterable={['name', 'species']}
       >
         <Thead>
@@ -50,7 +53,7 @@ export const HandleTable = (props) => {
             <strong className='age-header'>{'Updated'}</strong>
           </Th>
           {() => {
-            if(props.username !== '')
+            if(username !== '')
               <Th column='remove'>
                 <strong className='remove-header'>{'X'}</strong>
               </Th>;
@@ -63,12 +66,14 @@ export const HandleTable = (props) => {
 
 HandleTable.propTypes = {
   pets: PropTypes.array.isRequired,
-  username: PropTypes.string
+  username: PropTypes.string,
+  fetching: PropTypes.bool
 };
 
 const mapStateToProps = (state) => {
   return {
-    pets: state.petReducer.pets
+    pets: state.petReducer.pets,
+    fetching: state.petReducer.fetching
   };
 };
 

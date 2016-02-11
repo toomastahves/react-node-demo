@@ -7,14 +7,12 @@ import HandleMap from '../Parts/HandleMap';
 export const Map = () => {
   return (
     <div>
-      <div>
-        <SubHeader header={'Map demo'} description={'Created using react-gmaps library'} />
-        <div className='content'>
-          <div className='content-subheader'>
-            {'Front-end'}
-          </div>
-          <HandleMap />
+      <SubHeader header={'Map demo'} description={'Created using react-gmaps library'} />
+      <div className='content'>
+        <div className='content-subheader'>
+          {'Pets locations on Google maps'}
         </div>
+        <HandleMap />
       </div>
     </div>
   );

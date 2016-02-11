@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { getPets } from '../../actions/getpets';
 import randomcolor from 'randomcolor';
 
-export const HandleCharts = ({ pets }) => {
-  if(pets.length === 0) return <div></div>;
+export const HandleCharts = ({ pets, fetching }) => {
+  if(fetching) return <div>{'Loading...'}</div>;
 
   // Data manipulation for first 3 charts
   const combineSpeciesByBirthMonth = new Map();
@@ -106,12 +106,14 @@ export const HandleCharts = ({ pets }) => {
 };
 
 HandleCharts.propTypes = {
-  pets: PropTypes.array
+  pets: PropTypes.array,
+  fetching: PropTypes.bool
 };
 
 const mapStateToProps = (state) => {
   return {
-    pets: state.petReducer.pets
+    pets: state.petReducer.pets,
+    fetching: state.petReducer.fetching
   };
 };
 
