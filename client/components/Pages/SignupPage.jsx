@@ -1,43 +1,61 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ContentLayout from '../Layouts/Content';
 import { signup } from '../../actions/signup';
+import { checkUsernameAvailability } from '../../actions/checkUsername';
 import '../styles/auth.css';
+import HandleAuthForm from '../Parts/HandleAuthForm';
 
-export const SignupPage = (props) => {
-  const handleSubmit = (e) => {
+export class SignupPage extends Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+  }
+  state = {
+    username: '',
+    usernameErrorMessage: '',
+    usernameDebounce: null
+  };
+  handleSubmit = (e) => {
     e.preventDefault();
     const username = e.target.querySelector('[name="username"]').value;
     const password = e.target.querySelector('[name="password"]').value;
-    props.dispatch(signup({ username, password }));
+    this.props.dispatch(signup({ username, password }));
   };
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit} className='flex-form-container pure-form'>
-        <div className='flex-form-item'>
-          {props.error}
-        </div>
-        <div className='flex-form-item'>
-          <input name='username' type='text' placeholder='Username' />
-        </div>
-        <div className='flex-form-item'>
-          <input name='password' type='text' placeholder='Password' /></div>
-        <div className='flex-form-item'>
-          <button className='pure-button' type='submit'>{'Sign up'}</button>
-        </div>
-      </form>
-    </div>
-  );
-};
+  handleUsernameChange = (e) => {
+    e.preventDefault();
+    const username = e.target.value;
+    clearTimeout(this.state.usernameDebounce);
+    this.setState({
+      usernameDebounce: setTimeout(() => {
+        this.props.dispatch(checkUsernameAvailability(username));
+      }, 1000)
+    });
+  };
+  render() {
+    return (
+      <div>
+        <HandleAuthForm
+          available={this.props.available}
+          onChange={this.handleUsernameChange}
+          onSubmit={this.handleSubmit}
+          error={this.props.error}
+        />
+      </div>
+    );
+  }
+}
 
 SignupPage.propTypes = {
-  error: PropTypes.string
+  error: PropTypes.string,
+  available: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
   return {
-    error: state.authReducer.error
+    error: state.authReducer.error,
+    available: state.userReducer.available
   };
 };
 

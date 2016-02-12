@@ -90,3 +90,23 @@ export const signinjwt = (req, res) => {
     return res.status(503).send({ error: err.message });
   });
 };
+
+export const checkusername = (req, res) => {
+  console.log('body', req.body);
+  const username = req.body.username;
+  if(!username)
+    return res.status(422).send({ error: 'Problem with params' });
+
+  const promise = User.findOne({ username }).exec();
+
+  promise.then((user) => {
+    if(!user)
+      return res.status(200).send({ available: true, username });
+
+    return res.status(200).send({ available: false, username });
+  });
+
+  promise.catch((err) => {
+    return res.status(503).send({ error: err.message });
+  });
+};

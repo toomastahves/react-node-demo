@@ -8,3 +8,11 @@
 .flex-form-item {
   margin: 5px;
 }
+
+.username-success {
+  color: green;
+}
+
+.username-error {
+  color: red;
+}
