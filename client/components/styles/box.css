@@ -6,7 +6,7 @@
 }
 
 .box-table {
-  border: 1px solid #ddd;
+  border: 2px solid #d6d5d5;
   margin: 0 0.5em 2em;
   padding: 0 0 3em;
 }
@@ -34,8 +34,7 @@
 
 .box-button-choose {
   border: 1px solid #ccc;
-  background: #fff;
-  color: #333;
+  background-color: rgb(203, 202, 202) !important;
   border-radius: 2em;
   font-weight: bold;
   position: relative;

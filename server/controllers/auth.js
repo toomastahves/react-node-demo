@@ -101,9 +101,9 @@ export const checkusername = (req, res) => {
 
   promise.then((user) => {
     if(!user)
-      return res.status(200).send({ available: true, username });
+      return res.status(200).send({ taken: false, username });
 
-    return res.status(200).send({ available: false, username });
+    return res.status(200).send({ taken: true, username });
   });
 
   promise.catch((err) => {

@@ -11,15 +11,14 @@ const handleSignout = (props, e) => {
 export const Menu = (props) => {
   let userinfo = (
     <ul className='pure-menu-list'>
-      <li className='pure-menu-item'><a href='#signin' className='pure-menu-link'>{'Signin'}</a></li>
-      <li className='pure-menu-item'><a href='#signup' className='pure-menu-link'>{'Signup'}</a></li>
+      <li className='pure-menu-item'><a href='#auth' className='pure-menu-link'>{'Auth'}</a></li>
     </ul>
   );
 
   if(props.username) {
     userinfo = (
       <ul className='pure-menu-list'>
-        <li className='pure-menu-item'>{props.username}</li>
+        <li className='pure-menu-item'><a href='#profile' className='pure-menu-link'>{props.username}</a></li>
         <li className='pure-menu-item'><a onClick={handleSignout.bind(this, props)} href='#' className='pure-menu-link'>{'Signout'}</a></li>
       </ul>
     );

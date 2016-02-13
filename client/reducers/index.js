@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import { authReducer } from './auth';
 import { petReducer } from './pets';
-import { userReducer } from './user';
+import { validateReducer } from './validate';
 
 const reducers = combineReducers({
   authReducer,
   petReducer,
-  userReducer
+  validateReducer
 });
 
 export default reducers;

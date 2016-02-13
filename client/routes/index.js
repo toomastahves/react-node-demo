@@ -7,9 +7,9 @@ import ChartPage from '../components/Pages/ChartPage';
 import TablePage from '../components/Pages/TablePage';
 import MapPage from '../components/Pages/MapPage';
 import AboutPage from '../components/Pages/AboutPage';
-import SignupPage from '../components/Pages/SignupPage';
-import SigninPage from '../components/Pages/SigninPage';
 import useScroll from 'scroll-behavior/lib/useStandardScroll';
+import AuthPage from '../components/Pages/AuthPage';
+import ProfilePage from '../components/Pages/ProfilePage';
 
 const history = useScroll(createHashHistory);
 const appHistory = useRouterHistory(history)({ queryKey: false });
@@ -24,8 +24,8 @@ export const Routes = () => {
         <Route path='table' component={TablePage} />
         <Route path='map' component={MapPage} />
         <Route path='about' component={AboutPage} />
-        <Route path='signup' component={SignupPage} />
-        <Route path='signin' component={SigninPage} />
+        <Route path='auth' component={AuthPage} />
+        <Route path='profile' component={ProfilePage} />
       </Route>
     </Router>
   );

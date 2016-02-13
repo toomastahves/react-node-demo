@@ -1,0 +1,58 @@
+.tabs {
+    max-width: 750px;
+    margin: 50px auto;
+    float: none;
+    list-style: none;
+    padding: 0;
+    border-bottom: 4px solid;
+}
+.tabs input[type=radio] {
+    display:none;
+}
+.tabs label {
+    display: block;
+    float: left;
+    width: 50%;
+    color: #ccc;
+    font-size: 20px;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: center;
+    line-height: 2;
+    cursor: pointer;
+    box-shadow: inset 0 4px #ccc;
+    border-bottom: 4px solid;
+    -webkit-transition: all 0.5s; /* Safari 3.1 to 6.0 */
+    transition: all 0.5s;
+}
+.tabs label:hover {
+    color: #000000;
+    box-shadow: inset 0 4px #000000;
+    border-bottom: 4px solid #000000;
+}
+.tab-content {
+    display: none;
+    width: 100%;
+    float: left;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color:#ffffff;
+}
+
+.tabs [id^="signup"]:checked + label,
+.tabs [id^="signin"]:checked + label {
+    background: #FFF;
+    box-shadow: inset 0 4px #000000;
+    border-bottom: 4px solid #fff;
+    color: #000000;
+}
+#signup:checked ~ #tab-signup-form,
+#signin:checked ~ #tab-signin-form {
+    display: block;
+}
+
+@media (max-width: 768px) {
+  .tabs {
+    max-width: 90%;
+  }
+}

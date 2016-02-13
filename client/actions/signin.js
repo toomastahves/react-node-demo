@@ -19,7 +19,7 @@ export const signinResponse = (data) => {
 
   setValue(LOCALSTORAGE_TOKEN_KEY, data.token);
 
-  // hashHistory.replace('home');
+  hashHistory.replace('profile');
 
   return {
     type: SIGNIN_SUCCESS,

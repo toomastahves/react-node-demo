@@ -9,10 +9,10 @@
   margin: 5px;
 }
 
-.username-success {
+.auth-message-success {
   color: green;
 }
 
-.username-error {
+.auth-message-error {
   color: red;
 }
