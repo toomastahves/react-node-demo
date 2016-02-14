@@ -28,7 +28,8 @@ export const signup = (req, res) => {
 
       return res.status(201).send({
         token,
-        username
+        username,
+        _id: result._id
       });
     });
   });
@@ -60,7 +61,8 @@ export const signin = (req, res) => {
 
     return res.status(200).send({
       token,
-      username
+      username,
+      _id: user._id
     });
   });
 
@@ -82,7 +84,8 @@ export const signinjwt = (req, res) => {
 
     return res.status(200).send({
       token,
-      username: user.username
+      username: user.username,
+      _id: user._id
     });
   });
 

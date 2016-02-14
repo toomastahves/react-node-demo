@@ -28,6 +28,12 @@ const Pet = new Schema({
   },
   updated_at: {
     type: Date
+  },
+  created_by: {
+    type: String
+  },
+  updated_by: {
+    type: String
   }
 });
 

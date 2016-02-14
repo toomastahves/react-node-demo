@@ -11,7 +11,6 @@ export const signinRequest = () => {
 };
 
 export const signinResponse = (data, changeRoute = true) => {
-  console.log(changeRoute);
   if(data.error)
     return {
       type: SIGNIN_ERROR,
@@ -30,7 +29,6 @@ export const signinResponse = (data, changeRoute = true) => {
 };
 
 export const signinError = (error) => {
-  console.log('error', error);
   return {
     type: SIGNIN_ERROR,
     error

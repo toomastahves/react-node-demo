@@ -6,9 +6,15 @@ const initialState = {
   usernameError: '',
   passwordError: '',
   serverError: '',
-  petNameError: '',
-  petBirthdayError: '',
-  petSpeciesError: ''
+  petForm: {
+    birthday: { value: null, error: '' },
+    name: { value: '', error: '' },
+    species: { value: '', error: '' },
+    homestatus: { value: null, error: '' },
+    lat: { value: null },
+    lng: { value: null },
+    latlng: { error: '' }
+  }
 };
 
 export const validateReducer = (state = initialState, action) => {
@@ -31,30 +37,13 @@ export const validateReducer = (state = initialState, action) => {
     case actions.VALIDATE_PASSWORD_ERROR:
       return Object.assign({}, state, { passwordError: action.error });
 
-    case actions.VALIDATE_PET_NAME_SUCCESS:
-      return Object.assign({}, state, { petNameError: '' });
-    case actions.VALIDATE_PET_NAME_ERROR:
-      return Object.assign({}, state, { petNameError: action.error });
+    case actions.VALIDATE_PET_FORM_ERROR:
+      return Object.assign({}, state, { petForm: action.form });
+    case actions.VALIDATE_PET_FORM_SUCCESS:
+      return Object.assign({}, state, { petForm: action.form });
 
-    case actions.VALIDATE_PET_BIRTHDAY_SUCCESS:
-      return Object.assign({}, state, { petBirthdayError: '' });
-    case actions.VALIDATE_PET_BIRTHDAY_ERROR:
-      return Object.assign({}, state, { petBirthdayError: action.error });
-
-    case actions.VALIDATE_PET_SPECIES_SUCCESS:
-      return Object.assign({}, state, { petSpeciesError: '' });
-    case actions.VALIDATE_PET_SPECIES_ERROR:
-      return Object.assign({}, state, { petSpeciesError: action.error });
-
-    case actions.VALIDATE_PET_LAT_SUCCESS:
-      return Object.assign({}, state, { petLatError: '' });
-    case actions.VALIDATE_PET_LAT_ERROR:
-      return Object.assign({}, state, { petLatError: action.error });
-
-    case actions.VALIDATE_PET_LNG_SUCCESS:
-      return Object.assign({}, state, { petLngError: '' });
-    case actions.VALIDATE_PET_LNG_ERROR:
-      return Object.assign({}, state, { petLngError: action.error });
+    case actions.RESET_PET_FORM:
+      return Object.assign({}, initialState);
 
     default:
       return state;

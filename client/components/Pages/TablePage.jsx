@@ -3,7 +3,7 @@ import '../styles/pages.css';
 import '../styles/tablepage.css';
 import ContentLayout from '../Layouts/Content';
 import SubHeader from '../Parts/SubHeader';
-import HandlePetForm from '../Parts/HandlePetForm';
+import PetForm from '../Parts/PetForm';
 import HandleTable from '../Parts/HandleTable';
 import { connect } from 'react-redux';
 
@@ -15,8 +15,8 @@ export const TablePage = (props) => {
         <div className='content-subheader'>
           {'Pets table.'}
         </div>
-        {props.username && <HandlePetForm />}
-        <HandleTable username={props.username} />
+        {props.username && <PetForm />}
+        <HandleTable />
       </div>
     </div>
   );

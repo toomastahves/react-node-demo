@@ -13,6 +13,7 @@ export const HandleTable = ({ pets, fetching }) => {
     p.homestatus = p.homestatus ? 'Has home' : 'Homeless';
     p.birthday = fecha.format(new Date(p.birthday), 'DD MMM YYYY');
     p.updated_at = fecha.format(new Date(p.updated_at), 'DD MMM hh:mm:ss');
+    p.updated_by = p.updated_by ? p.updated_by : '';
     return p;
   });
 
@@ -23,9 +24,9 @@ export const HandleTable = ({ pets, fetching }) => {
         sortable={true}
         defaultSort={{ column: 'updated_at', direction: 'desc' }}
         noDataText='No matching records found.'
-        itemsPerPage={5} pageButtonLimit={3}
+        itemsPerPage={10} pageButtonLimit={10}
         data={pets}
-        filterable={['name', 'species']}
+        filterable={['name', 'species', 'updated_by']}
       >
         <Thead>
           <Th column='name'>
@@ -44,7 +45,10 @@ export const HandleTable = ({ pets, fetching }) => {
             <strong className='location-header'>{'Location'}</strong>
           </Th>
           <Th column='updated_at'>
-            <strong className='age-header'>{'Updated'}</strong>
+            <strong className='updated_at-header'>{'Updated at'}</strong>
+          </Th>
+          <Th column='updated_by'>
+            <strong className='updated_by-header'>{'Updated by'}</strong>
           </Th>
         </Thead>
       </Table>

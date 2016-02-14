@@ -1,4 +1,5 @@
 import { CREATE_PET_REQUEST, CREATE_PET_SUCCESS, CREATE_PET_ERROR } from '../constants/pets';
+import { RESET_PET_FORM } from '../constants/validate';
 import { SERVER_URI } from '../constants/uri';
 import { LOCALSTORAGE_TOKEN_KEY } from '../constants/auth';
 import fetch from 'isomorphic-fetch';
@@ -8,6 +9,17 @@ export const createPetSuccess = (pet) => {
   return {
     type: CREATE_PET_SUCCESS,
     pet
+  };
+};
+
+export const resetPetForm = () => {
+  document.getElementById('petname').value = '';
+  document.getElementById('species').value = '';
+  document.getElementById('homestatus').value = '0';
+  document.getElementById('lat').value = '';
+  document.getElementById('lng').value = '';
+  return {
+    type: RESET_PET_FORM
   };
 };
 
@@ -39,6 +51,7 @@ export const createPet = (pet) => {
     })
     .then(response => response.json())
     .then(savedPet => dispatch(createPetSuccess(savedPet)))
+    .then(dispatch(resetPetForm()))
     .catch(error => dispatch(createPetError(error)));
   };
 };
