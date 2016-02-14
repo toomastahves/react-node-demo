@@ -2,25 +2,19 @@ import React, { PropTypes } from 'react';
 import { Table, Thead, Th } from 'reactable';
 import fecha from 'fecha';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { getPets } from '../../actions/getpets';
-import { deletePet } from '../../actions/deletePet';
+import Spinner from './Spinner';
 
-export const HandleTable = ({ pets, username, fetching, deletePet }) => {
-  if(fetching) return <div>{'Loading...'}</div>;
+export const HandleTable = ({ pets, fetching }) => {
+  if(fetching) return <Spinner />;
 
-  const handleDelete = (_id) => {
-    deletePet(_id);
-  };
   pets.map(p => {
     p.location = [ p.lat, p.lng ];
     p.homestatus = p.homestatus ? 'Has home' : 'Homeless';
     p.birthday = fecha.format(new Date(p.birthday), 'DD MMM YYYY');
     p.updated_at = fecha.format(new Date(p.updated_at), 'DD MMM hh:mm:ss');
-    p.remove = <div className='delete-button' onClick={handleDelete.bind(null, p._id)}>{'X'}</div>;
     return p;
   });
-
 
   return (
     <div>
@@ -52,12 +46,6 @@ export const HandleTable = ({ pets, username, fetching, deletePet }) => {
           <Th column='updated_at'>
             <strong className='age-header'>{'Updated'}</strong>
           </Th>
-          {() => {
-            if(username !== '')
-              <Th column='remove'>
-                <strong className='remove-header'>{'X'}</strong>
-              </Th>;
-          }}
         </Thead>
       </Table>
     </div>
@@ -79,7 +67,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   dispatch(getPets());
-  return bindActionCreators(Object.assign({}, { deletePet }), dispatch);
+  return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HandleTable);

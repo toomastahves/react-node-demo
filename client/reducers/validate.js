@@ -5,7 +5,10 @@ const initialState = {
   available: {},
   usernameError: '',
   passwordError: '',
-  serverError: ''
+  serverError: '',
+  petNameError: '',
+  petBirthdayError: '',
+  petSpeciesError: ''
 };
 
 export const validateReducer = (state = initialState, action) => {
@@ -27,6 +30,31 @@ export const validateReducer = (state = initialState, action) => {
       return Object.assign({}, state, { passwordError: '' });
     case actions.VALIDATE_PASSWORD_ERROR:
       return Object.assign({}, state, { passwordError: action.error });
+
+    case actions.VALIDATE_PET_NAME_SUCCESS:
+      return Object.assign({}, state, { petNameError: '' });
+    case actions.VALIDATE_PET_NAME_ERROR:
+      return Object.assign({}, state, { petNameError: action.error });
+
+    case actions.VALIDATE_PET_BIRTHDAY_SUCCESS:
+      return Object.assign({}, state, { petBirthdayError: '' });
+    case actions.VALIDATE_PET_BIRTHDAY_ERROR:
+      return Object.assign({}, state, { petBirthdayError: action.error });
+
+    case actions.VALIDATE_PET_SPECIES_SUCCESS:
+      return Object.assign({}, state, { petSpeciesError: '' });
+    case actions.VALIDATE_PET_SPECIES_ERROR:
+      return Object.assign({}, state, { petSpeciesError: action.error });
+
+    case actions.VALIDATE_PET_LAT_SUCCESS:
+      return Object.assign({}, state, { petLatError: '' });
+    case actions.VALIDATE_PET_LAT_ERROR:
+      return Object.assign({}, state, { petLatError: action.error });
+
+    case actions.VALIDATE_PET_LNG_SUCCESS:
+      return Object.assign({}, state, { petLngError: '' });
+    case actions.VALIDATE_PET_LNG_ERROR:
+      return Object.assign({}, state, { petLngError: action.error });
 
     default:
       return state;

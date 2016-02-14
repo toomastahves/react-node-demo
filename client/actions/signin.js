@@ -10,7 +10,8 @@ export const signinRequest = () => {
   };
 };
 
-export const signinResponse = (data) => {
+export const signinResponse = (data, changeRoute = true) => {
+  console.log(changeRoute);
   if(data.error)
     return {
       type: SIGNIN_ERROR,
@@ -19,7 +20,8 @@ export const signinResponse = (data) => {
 
   setValue(LOCALSTORAGE_TOKEN_KEY, data.token);
 
-  hashHistory.replace('profile');
+  if(changeRoute)
+    hashHistory.replace('profile');
 
   return {
     type: SIGNIN_SUCCESS,
@@ -70,7 +72,7 @@ export const signinJWT = () => {
       }
     })
     .then(response => response.json())
-    .then(data => dispatch(signinResponse(data)))
+    .then(data => dispatch(signinResponse(data, false)))
     .catch(error => dispatch(signinError(error)));
   };
 };

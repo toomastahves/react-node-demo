@@ -4,9 +4,10 @@ import '../styles/map.css';
 import { connect } from 'react-redux';
 import { getPets } from '../../actions/getpets';
 import shortid from 'shortid';
+import Spinner from './Spinner';
 
 export const HandleMap = ({ pets, fetching }) => {
-  if(fetching) return <div>{'Loading...'}</div>;
+  if(fetching) return <Spinner />;
 
   const infoWindows = [];
   for(let i = 0, len = pets.length; i < len; i++) {

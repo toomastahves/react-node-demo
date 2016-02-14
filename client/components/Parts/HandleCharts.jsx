@@ -3,9 +3,10 @@ import { Bar, Doughnut, Line, Pie, PolarArea, Radar } from 'react-chartjs';
 import { connect } from 'react-redux';
 import { getPets } from '../../actions/getpets';
 import randomcolor from 'randomcolor';
+import Spinner from './Spinner';
 
 export const HandleCharts = ({ pets, fetching }) => {
-  if(fetching) return <div>{'Loading...'}</div>;
+  if(fetching) return <Spinner />;
 
   // Data manipulation for first 3 charts
   const combineSpeciesByBirthMonth = new Map();

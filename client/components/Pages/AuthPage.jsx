@@ -7,6 +7,7 @@ import { validateUsername, validatePassword, validateAndSubmit } from '../../act
 import '../styles/auth.css';
 
 export const AuthPage = (props) => {
+
   const handleSigninSubmit = (e) => {
     e.preventDefault();
     const username = e.target.querySelector('[name="username"]').value;
