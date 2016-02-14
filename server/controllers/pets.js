@@ -18,7 +18,7 @@ export const getPet = (req, res) => {
   if(!_id)
     return res.status(422).send({ error: 'Problem with params' });
 
-  const promise = Pet.find({ _id }).exec();
+  const promise = Pet.findOne({ _id }).exec();
 
   promise.then((result) => {
     return res.status(200).send(result);

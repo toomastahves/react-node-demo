@@ -9,6 +9,7 @@ export const HandleTable = ({ pets, fetching }) => {
   if(fetching) return <Spinner />;
 
   pets.map(p => {
+    p.name = <a href={`#/pet/${p._id}`}>{p.name}</a>;
     p.location = [ p.lat, p.lng ];
     p.homestatus = p.homestatus ? 'Has home' : 'Homeless';
     p.birthday = fecha.format(new Date(p.birthday), 'DD MMM YYYY');

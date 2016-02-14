@@ -1,8 +1,10 @@
 .header {
-  background: transparent url('highway.jpg') 0 0 no-repeat fixed;
+  background: transparent url('space.jpg') 0 0 no-repeat fixed;
+  text-align: center;
+  background-size: cover;
   margin: 0;
   color: white;
-  text-align: center;
+
   padding: 1em 1em 0;
   border-bottom: 1px solid #eee;
   background-color: rgb(199, 198, 198);

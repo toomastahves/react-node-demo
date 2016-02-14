@@ -10,6 +10,7 @@ import AboutPage from '../components/Pages/AboutPage';
 import useScroll from 'scroll-behavior/lib/useStandardScroll';
 import AuthPage from '../components/Pages/AuthPage';
 import ProfilePage from '../components/Pages/ProfilePage';
+import PetPage from '../components/Pages/PetPage';
 
 const history = useScroll(createHashHistory);
 const appHistory = useRouterHistory(history)({ queryKey: false });
@@ -26,6 +27,7 @@ export const Routes = () => {
         <Route path='about' component={AboutPage} />
         <Route path='auth' component={AuthPage} />
         <Route path='profile' component={ProfilePage} />
+        <Route path='pet/:_id' component={PetPage} />
       </Route>
     </Router>
   );
