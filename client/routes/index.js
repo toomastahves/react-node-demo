@@ -1,13 +1,13 @@
 import React from 'react';
 import { Router, Route, IndexRoute, useRouterHistory } from 'react-router';
 import { createHashHistory } from 'history';
+import useScroll from 'scroll-behavior/lib/useStandardScroll';
 import App from '../components/App';
 import HomePage from '../components/Pages/HomePage';
 import ChartPage from '../components/Pages/ChartPage';
 import TablePage from '../components/Pages/TablePage';
 import MapPage from '../components/Pages/MapPage';
 import AboutPage from '../components/Pages/AboutPage';
-import useScroll from 'scroll-behavior/lib/useStandardScroll';
 import AuthPage from '../components/Pages/AuthPage';
 import ProfilePage from '../components/Pages/ProfilePage';
 import ManagePetPage from '../components/Pages/ManagePetPage';

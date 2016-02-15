@@ -3,14 +3,14 @@ import ContentLayout from '../Layouts/Content';
 import SubHeader from '../Parts/SubHeader';
 import CreatePetForm from '../Parts/CreatePetForm';
 import { connect } from 'react-redux';
-import { toggleDatepickerVisibility, petFormChange } from '../../actions/validatePetForm';
-import { resetPetForm, createPet } from '../../actions/createPet';
+import { toggleDatepickerVisibility, petFormChange, validateAndSubmit } from '../../actions/validatePetForm';
+import { resetPetForm } from '../../actions/createPet';
 
 export const CreatePetPage = ({ datepickerVisibility, dispatch, petForm, username }) => {
   const handleCreate = (e) => {
     e.preventDefault();
     const newForm = Object.assign({}, petForm, { created_by: username, updated_by: username });
-    dispatch(createPet(newForm));
+    dispatch(validateAndSubmit(newForm, 'create'));
   };
   const handleNameChange = (e) => {
     const newForm = Object.assign({}, petForm, { name: e.target.value });

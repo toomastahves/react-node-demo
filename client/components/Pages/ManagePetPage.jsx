@@ -4,15 +4,14 @@ import { connect } from 'react-redux';
 import SubHeader from '../Parts/SubHeader';
 import { getPet } from '../../actions/getPet';
 import { deletePet } from '../../actions/deletePet';
-import { updatePet } from '../../actions/updatePet';
 import UpdatePetForm from '../Parts/UpdatePetForm';
-import { toggleDatepickerVisibility, petFormChange } from '../../actions/validatePetForm';
+import { toggleDatepickerVisibility, petFormChange, validateAndSubmit } from '../../actions/validatePetForm';
 
 export const ManagePetPage = ({ datepickerVisibility, dispatch, petForm, username }) => {
   const handleUpdate = (e) => {
     e.preventDefault();
     const newForm = Object.assign({}, petForm, { updated_by: username });
-    dispatch(updatePet(newForm));
+    dispatch(validateAndSubmit(newForm, 'update'));
   };
   const handleDelete = (e) => {
     e.preventDefault();

@@ -30,11 +30,6 @@ export const validateReducer = (state = initialState, action) => {
     case actions.VALIDATE_PASSWORD_ERROR:
       return Object.assign({}, state, { passwordError: action.error });
 
-    case actions.VALIDATE_PET_FORM_ERROR:
-      return Object.assign({}, state, { petForm: action.form });
-    case actions.VALIDATE_PET_FORM_SUCCESS:
-      return Object.assign({}, state, { petForm: action.form });
-
     case actions.RESET_PET_FORM:
       return Object.assign({}, initialState);
 

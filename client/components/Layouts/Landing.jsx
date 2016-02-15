@@ -5,7 +5,7 @@ import BoxWrap from '../Parts/BoxWrap';
 import CardWrap from '../Parts/CardWrap';
 import Footer from '../Parts/Footer';
 
-export const HomeLayout = () => {
+export const Landing = () => {
 
   const Sub = () => {
     return (
@@ -22,4 +22,4 @@ export const HomeLayout = () => {
 
 };
 
-export default HomeLayout;
+export default Landing;

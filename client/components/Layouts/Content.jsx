@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import Footer from '../Parts/Footer';
 import MenuContainer from './MenuContainer';
 
