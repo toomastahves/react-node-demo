@@ -63,7 +63,10 @@ export const ManagePetPage = ({ datepickerVisibility, dispatch, petForm, usernam
 };
 
 ManagePetPage.propTypes = {
-  pet: PropTypes.object
+  datepickerVisibility: PropTypes.bool,
+  dispatch: PropTypes.func,
+  petForm: PropTypes.object,
+  username: PropTypes.string
 };
 
 const mapStateToProps = (state) => {

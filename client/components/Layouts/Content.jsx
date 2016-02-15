@@ -1,23 +1,22 @@
-import React from 'react';
-import Menu from '../Parts/Menu';
+import React, { PropTypes } from 'react';
 import Footer from '../Parts/Footer';
-import '../styles/github.css';
-import GithubRibbon from '../Parts/GithubRibbon';
+import MenuContainer from './MenuContainer';
 
 export const ContentLayout = (SubComponent) => {
 
   const Sub = (props) => {
+
     return (
       <div>
-        <Menu />
+        <MenuContainer />
         <SubComponent {...props} />
         <Footer />
-        <GithubRibbon />
       </div>
     );
   };
   return Sub;
 
 };
+
 
 export default ContentLayout;

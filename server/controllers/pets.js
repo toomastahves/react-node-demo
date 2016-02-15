@@ -30,7 +30,6 @@ export const getPet = (req, res) => {
 };
 
 export const createPet = (req, res) => {
-  console.log(req.body);
   const name = req.body.name;
   const species = req.body.species;
   const homestatus = req.body.homestatus;

@@ -41,9 +41,6 @@ export const validateReducer = (state = initialState, action) => {
     case actions.TOGGLE_DATEPICKER_VISIBILITY:
       return Object.assign({}, state, { datepickerVisibility: !state.datepickerVisibility });
 
-    case actions.PET_NAME_CHANGE:
-      return Object.assign({}, state, { petForm: action.petForm });
-
     case actions.PET_FORM_CHANGE:
       return Object.assign({}, state, { petForm: action.petForm });
 

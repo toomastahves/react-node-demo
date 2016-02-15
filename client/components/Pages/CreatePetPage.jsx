@@ -4,7 +4,7 @@ import SubHeader from '../Parts/SubHeader';
 import CreatePetForm from '../Parts/CreatePetForm';
 import { connect } from 'react-redux';
 import { toggleDatepickerVisibility, petFormChange } from '../../actions/validatePetForm';
-import { createPet } from '../../actions/createPet';
+import { resetPetForm, createPet } from '../../actions/createPet';
 
 export const CreatePetPage = ({ datepickerVisibility, dispatch, petForm, username }) => {
   const handleCreate = (e) => {
@@ -56,7 +56,10 @@ export const CreatePetPage = ({ datepickerVisibility, dispatch, petForm, usernam
 };
 
 CreatePetPage.propTypes = {
-
+  datepickerVisibility: PropTypes.bool,
+  dispatch: PropTypes.func,
+  petForm: PropTypes.object,
+  username: PropTypes.string
 };
 
 const mapStateToProps = (state) => {
@@ -67,4 +70,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ContentLayout(CreatePetPage));
+const mapDispatchToProps = (dispatch) => {
+  dispatch(resetPetForm());
+  return { dispatch };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContentLayout(CreatePetPage));

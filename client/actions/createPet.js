@@ -6,22 +6,17 @@ import fetch from 'isomorphic-fetch';
 import { getValue } from '../services/storage';
 import { hashHistory } from 'react-router';
 
+export const resetPetForm = () => {
+  return {
+    type: RESET_PET_FORM
+  };
+};
+
 export const createPetSuccess = (pet) => {
   hashHistory.replace('table');
   return {
     type: CREATE_PET_SUCCESS,
     pet
-  };
-};
-
-export const resetPetForm = () => {
-  document.getElementById('petname').value = '';
-  document.getElementById('species').value = '';
-  document.getElementById('homestatus').value = '0';
-  document.getElementById('lat').value = '';
-  document.getElementById('lng').value = '';
-  return {
-    type: RESET_PET_FORM
   };
 };
 
@@ -39,7 +34,6 @@ export const createPetRequest = () => {
 };
 
 export const createPet = (pet) => {
-  console.log(pet);
   const token = getValue(LOCALSTORAGE_TOKEN_KEY);
   return dispatch => {
     dispatch(createPetRequest());
@@ -54,7 +48,6 @@ export const createPet = (pet) => {
     })
     .then(response => response.json())
     .then(savedPet => dispatch(createPetSuccess(savedPet)))
-    .then(dispatch(resetPetForm()))
     .catch(error => dispatch(createPetError(error)));
   };
 };

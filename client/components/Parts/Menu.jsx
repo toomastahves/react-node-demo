@@ -1,25 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { signout } from '../../actions/signout';
 import '../styles/menu.css';
 
-const handleSignout = (props, e) => {
-  e.preventDefault();
-  props.dispatch(signout(props));
-};
-
-export const Menu = (props) => {
+export const Menu = ({ handleSignout, username }) => {
   let userinfo = (
     <ul className='pure-menu-list'>
       <li className='pure-menu-item'><a href='#auth' className='pure-menu-link'>{'Auth'}</a></li>
     </ul>
   );
 
-  if(props.username) {
+  if(username) {
     userinfo = (
       <ul className='pure-menu-list'>
-        <li className='pure-menu-item'><a href='#profile' className='pure-menu-link'>{props.username}</a></li>
-        <li className='pure-menu-item'><a onClick={handleSignout.bind(this, props)} href='#' className='pure-menu-link'>{'Signout'}</a></li>
+        <li className='pure-menu-item'><a href='#profile' className='pure-menu-link'>{username}</a></li>
+        <li className='pure-menu-item'><a onClick={handleSignout} href='#' className='pure-menu-link'>{'Signout'}</a></li>
       </ul>
     );
   }
@@ -52,10 +45,4 @@ export const Menu = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    username: state.authReducer.username
-  };
-};
-
-export default connect(mapStateToProps)(Menu);
+export default Menu;
