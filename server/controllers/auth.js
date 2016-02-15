@@ -95,7 +95,6 @@ export const signinjwt = (req, res) => {
 };
 
 export const checkusername = (req, res) => {
-  console.log('body', req.body);
   const username = req.body.username;
   if(!username)
     return res.status(422).send({ error: 'Problem with params' });

@@ -1,14 +1,9 @@
 import React, { PropTypes } from 'react';
 import { Gmaps, InfoWindow } from 'react-gmaps';
 import '../styles/map.css';
-import { connect } from 'react-redux';
-import { getPets } from '../../actions/getpets';
 import shortid from 'shortid';
-import Spinner from './Spinner';
 
-export const HandleMap = ({ pets, fetching }) => {
-  if(fetching) return <Spinner />;
-
+export const ShowMap = ({ pets }) => {
   const infoWindows = [];
   for(let i = 0, len = pets.length; i < len; i++) {
     if(pets[i].lat && pets[i].lng) {
@@ -21,7 +16,6 @@ export const HandleMap = ({ pets, fetching }) => {
         />);
     }
   }
-
   return (
     <div className='center-map'>
       <Gmaps
@@ -38,21 +32,8 @@ export const HandleMap = ({ pets, fetching }) => {
   );
 };
 
-HandleMap.propTypes = {
-  pets: PropTypes.array,
-  fetching: PropTypes.bool
+ShowMap.propTypes = {
+  pets: PropTypes.array
 };
 
-const mapStateToProps = (state) => {
-  return {
-    pets: state.petReducer.pets,
-    fetching: state.petReducer.fetching
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  dispatch(getPets());
-  return {};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HandleMap);
+export default ShowMap;

@@ -3,7 +3,7 @@ import '../styles/pages.css';
 import '../styles/tablepage.css';
 import ContentLayout from '../Layouts/Content';
 import SubHeader from '../Parts/SubHeader';
-import HandleTable from '../Parts/HandleTable';
+import ShowTable from '../Parts/ShowTable';
 import { connect } from 'react-redux';
 
 export const TablePage = (props) => {
@@ -12,7 +12,7 @@ export const TablePage = (props) => {
       <SubHeader header={'Table demo'} description={'Created using reactable library'} />
       <div className='content'>
         {props.username && <a href='/#/createpet' className='pure-button create-button'>{'Create new'}</a>}
-        <HandleTable />
+        <ShowTable />
       </div>
     </div>
   );

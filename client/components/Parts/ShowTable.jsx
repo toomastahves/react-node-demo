@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import { getPets } from '../../actions/getpets';
 import Spinner from './Spinner';
 
-export const HandleTable = ({ pets, fetching }) => {
-  if(fetching) return <Spinner />;
+export const ShowTable = ({ pets, fetching }) => {
+  if(fetching)
+    return <Spinner />;
 
   pets.map(p => {
     p.location = [ p.lat, p.lng ];
@@ -60,7 +61,7 @@ export const HandleTable = ({ pets, fetching }) => {
   );
 };
 
-HandleTable.propTypes = {
+ShowTable.propTypes = {
   pets: PropTypes.array.isRequired,
   username: PropTypes.string,
   fetching: PropTypes.bool
@@ -78,4 +79,4 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HandleTable);
+export default connect(mapStateToProps, mapDispatchToProps)(ShowTable);

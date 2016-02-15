@@ -1,7 +1,7 @@
 import * as actions from '../constants/pets';
 
 const initialState = {
-  fetching: false,
+  fetching: true,
   error: '',
   pets: [],
   pet: {}
