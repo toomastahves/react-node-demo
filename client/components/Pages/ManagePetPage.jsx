@@ -5,6 +5,7 @@ import SubHeader from '../Parts/SubHeader';
 import { getPet } from '../../actions/getPet';
 import { deletePet } from '../../actions/deletePet';
 import UpdatePetForm from '../Parts/UpdatePetForm';
+import PetInfo from '../Parts/PetInfo';
 import { toggleDatepickerVisibility, validatePetForm } from '../../actions/validatePetForm';
 
 export const ManagePetPage = ({ datepickerVisibility, dispatch, petForm, username }) => {
@@ -42,21 +43,28 @@ export const ManagePetPage = ({ datepickerVisibility, dispatch, petForm, usernam
     const newForm = Object.assign({}, petForm, { lng: Number(e.target.value) });
     dispatch(validatePetForm(newForm));
   };
+
+  const updatePetForm = (
+    <UpdatePetForm
+      handleDelete={handleDelete}
+      handleUpdate={handleUpdate}
+      handleDatepickerVisiblity={handleDatepickerVisiblity}
+      datepickerVisibility={datepickerVisibility}
+      pet={petForm}
+      handleNameChange={handleNameChange}
+      handleSpeciesChange={handleSpeciesChange}
+      handleHomestatusChange={handleHomestatusChange}
+      handleLatChange={handleLatChange}
+      handleLngChange={handleLngChange}
+    />
+  );
+
+  const petInfo = <PetInfo pet={petForm} />;
+
   return (
     <div>
       <SubHeader header={'Pet details page'} description={'Updated or delete pet here'} />
-      <UpdatePetForm
-        handleDelete={handleDelete}
-        handleUpdate={handleUpdate}
-        handleDatepickerVisiblity={handleDatepickerVisiblity}
-        datepickerVisibility={datepickerVisibility}
-        pet={petForm}
-        handleNameChange={handleNameChange}
-        handleSpeciesChange={handleSpeciesChange}
-        handleHomestatusChange={handleHomestatusChange}
-        handleLatChange={handleLatChange}
-        handleLngChange={handleLngChange}
-      />
+      {username ? updatePetForm : petInfo}
     </div>
   );
 };
