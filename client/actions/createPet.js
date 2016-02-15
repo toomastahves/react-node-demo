@@ -4,8 +4,10 @@ import { SERVER_URI } from '../constants/uri';
 import { LOCALSTORAGE_TOKEN_KEY } from '../constants/auth';
 import fetch from 'isomorphic-fetch';
 import { getValue } from '../services/storage';
+import { hashHistory } from 'react-router';
 
 export const createPetSuccess = (pet) => {
+  hashHistory.replace('table');
   return {
     type: CREATE_PET_SUCCESS,
     pet
@@ -37,6 +39,7 @@ export const createPetRequest = () => {
 };
 
 export const createPet = (pet) => {
+  console.log(pet);
   const token = getValue(LOCALSTORAGE_TOKEN_KEY);
   return dispatch => {
     dispatch(createPetRequest());

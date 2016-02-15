@@ -47,10 +47,8 @@ table > tbody > tr:hover {
   background-color: rgb(215, 215, 215);
 }
 
-.delete-button {
-  cursor: pointer;
-  font-size: 1.2em;
-}
-.delete-button:hover {
-  color: red;
+.create-button {
+  background-color: rgb(85, 122, 215) !important;
+  left: 0;
+  top: 0;
 }

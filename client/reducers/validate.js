@@ -7,7 +7,7 @@ const initialState = {
   passwordError: '',
   serverError: '',
   datepickerVisibility: false,
-  petForm: {}
+  petForm: { name: '', species: '', birthday: '', homestatus: false, lat: 0, lng: 0 }
 };
 
 export const validateReducer = (state = initialState, action) => {

@@ -3,7 +3,6 @@ import '../styles/pages.css';
 import '../styles/tablepage.css';
 import ContentLayout from '../Layouts/Content';
 import SubHeader from '../Parts/SubHeader';
-import PetForm from '../Parts/PetForm';
 import HandleTable from '../Parts/HandleTable';
 import { connect } from 'react-redux';
 
@@ -12,10 +11,7 @@ export const TablePage = (props) => {
     <div>
       <SubHeader header={'Table demo'} description={'Created using reactable library'} />
       <div className='content'>
-        <div className='content-subheader'>
-          {'Pets table.'}
-        </div>
-        {props.username }
+        {props.username && <a href='/#/createpet' className='pure-button create-button'>{'Create new'}</a>}
         <HandleTable />
       </div>
     </div>

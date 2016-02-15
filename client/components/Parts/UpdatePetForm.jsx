@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
 import DatePickerWrapper from './DatepickerWrapper';
 import fecha from 'fecha';
+import '../styles/petform.css';
 
-export const PetUpdateForm = ({ pet, handleDelete, handleUpdate, handleDatepickerVisiblity, datepickerVisibility,
+export const UpdatePetForm = ({ pet, handleDelete, handleUpdate, handleDatepickerVisiblity, datepickerVisibility,
   handleNameChange, handleSpeciesChange, handleHomestatusChange, handleLatChange, handleLngChange }) => {
   const birthday = fecha.format(new Date(pet.birthday), 'DD MMM YYYY');
   return (
-    <div>
+    <div className='content'>
       <form onSubmit={handleUpdate} className='pure-form'>
         <fieldset>
           <div className='create-pet-input-wrap'>
@@ -53,7 +54,7 @@ export const PetUpdateForm = ({ pet, handleDelete, handleUpdate, handleDatepicke
   );
 };
 
-PetUpdateForm.propTypes = {
+UpdatePetForm.propTypes = {
   pet: PropTypes.object.isRequired,
   handleDelete: PropTypes.func.isRequired,
   handleUpdate: PropTypes.func.isRequired,
@@ -66,4 +67,4 @@ PetUpdateForm.propTypes = {
   handleLngChange: PropTypes.func.isRequired
 };
 
-export default PetUpdateForm;
+export default UpdatePetForm;

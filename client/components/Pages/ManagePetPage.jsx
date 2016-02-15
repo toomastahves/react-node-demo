@@ -5,10 +5,10 @@ import SubHeader from '../Parts/SubHeader';
 import { getPet } from '../../actions/getPet';
 import { deletePet } from '../../actions/deletePet';
 import { updatePet } from '../../actions/updatePet';
-import PetUpdateForm from '../Parts/PetUpdateForm';
+import UpdatePetForm from '../Parts/UpdatePetForm';
 import { toggleDatepickerVisibility, petFormChange } from '../../actions/validatePetForm';
 
-export const PetPage = ({ datepickerVisibility, dispatch, petForm, username }) => {
+export const ManagePetPage = ({ datepickerVisibility, dispatch, petForm, username }) => {
   const handleUpdate = (e) => {
     e.preventDefault();
     const newForm = Object.assign({}, petForm, { updated_by: username });
@@ -46,7 +46,7 @@ export const PetPage = ({ datepickerVisibility, dispatch, petForm, username }) =
   return (
     <div>
       <SubHeader header={'Pet details page'} description={'Updated or delete pet here'} />
-      <PetUpdateForm
+      <UpdatePetForm
         handleDelete={handleDelete}
         handleUpdate={handleUpdate}
         handleDatepickerVisiblity={handleDatepickerVisiblity}
@@ -62,7 +62,7 @@ export const PetPage = ({ datepickerVisibility, dispatch, petForm, username }) =
   );
 };
 
-PetPage.propTypes = {
+ManagePetPage.propTypes = {
   pet: PropTypes.object
 };
 
@@ -79,4 +79,4 @@ const mapDispatchToProps = (dispatchOnLoad, ownProps) => {
   return dispatch => ({ dispatch });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContentLayout(PetPage));
+export default connect(mapStateToProps, mapDispatchToProps)(ContentLayout(ManagePetPage));
