@@ -3,39 +3,39 @@ import ContentLayout from '../Layouts/Content';
 import SubHeader from '../Parts/SubHeader';
 import CreatePetForm from '../Parts/CreatePetForm';
 import { connect } from 'react-redux';
-import { toggleDatepickerVisibility, petFormChange, validateAndSubmit } from '../../actions/validatePetForm';
+import { toggleDatepickerVisibility, validatePetForm } from '../../actions/validatePetForm';
 import { resetPetForm } from '../../actions/createPet';
 
 export const CreatePetPage = ({ datepickerVisibility, dispatch, petForm, username }) => {
   const handleCreate = (e) => {
     e.preventDefault();
     const newForm = Object.assign({}, petForm, { created_by: username, updated_by: username });
-    dispatch(validateAndSubmit(newForm, 'create'));
+    dispatch(validatePetForm(newForm, 'create'));
   };
   const handleNameChange = (e) => {
     const newForm = Object.assign({}, petForm, { name: e.target.value });
-    dispatch(petFormChange(newForm));
+    dispatch(validatePetForm(newForm));
   };
   const handleSpeciesChange = (e) => {
     const newForm = Object.assign({}, petForm, { species: e.target.value });
-    dispatch(petFormChange(newForm));
+    dispatch(validatePetForm(newForm));
   };
   const handleDatepickerVisiblity = () => {
     const newForm = Object.assign({}, petForm, { birthday: document.getElementById('birthday').value });
     dispatch(toggleDatepickerVisibility());
-    dispatch(petFormChange(newForm));
+    dispatch(validatePetForm(newForm));
   };
   const handleHomestatusChange = (e) => {
     const newForm = Object.assign({}, petForm, { homestatus: e.target.value });
-    dispatch(petFormChange(newForm));
+    dispatch(validatePetForm(newForm));
   };
   const handleLatChange = (e) => {
     const newForm = Object.assign({}, petForm, { lat: Number(e.target.value) });
-    dispatch(petFormChange(newForm));
+    dispatch(validatePetForm(newForm));
   };
   const handleLngChange = (e) => {
     const newForm = Object.assign({}, petForm, { lng: Number(e.target.value) });
-    dispatch(petFormChange(newForm));
+    dispatch(validatePetForm(newForm));
   };
   return (
     <div>

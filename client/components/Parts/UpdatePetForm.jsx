@@ -5,7 +5,9 @@ import '../styles/petform.css';
 
 export const UpdatePetForm = ({ pet, handleDelete, handleUpdate, handleDatepickerVisiblity, datepickerVisibility,
   handleNameChange, handleSpeciesChange, handleHomestatusChange, handleLatChange, handleLngChange }) => {
+
   const birthday = fecha.format(new Date(pet.birthday), 'DD MMM YYYY');
+
   return (
     <div className='content'>
       <form onSubmit={handleUpdate} className='pure-form'>
@@ -34,8 +36,8 @@ export const UpdatePetForm = ({ pet, handleDelete, handleUpdate, handleDatepicke
             </div>
             <div className='pure-control-group'>
               <select onChange={handleHomestatusChange} value={pet.homestatus} className='selectbox-aligned' id='homestatus'>
-                <option value='0'>{'Homeless'}</option>
-                <option value='1'>{'Has home'}</option>
+                <option value={false}>{'Homeless'}</option>
+                <option value={true}>{'Has home'}</option>
               </select>
             </div>
             <div className='pure-control-group'>

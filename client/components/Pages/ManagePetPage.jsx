@@ -5,13 +5,13 @@ import SubHeader from '../Parts/SubHeader';
 import { getPet } from '../../actions/getPet';
 import { deletePet } from '../../actions/deletePet';
 import UpdatePetForm from '../Parts/UpdatePetForm';
-import { toggleDatepickerVisibility, petFormChange, validateAndSubmit } from '../../actions/validatePetForm';
+import { toggleDatepickerVisibility, validatePetForm } from '../../actions/validatePetForm';
 
 export const ManagePetPage = ({ datepickerVisibility, dispatch, petForm, username }) => {
   const handleUpdate = (e) => {
     e.preventDefault();
     const newForm = Object.assign({}, petForm, { updated_by: username });
-    dispatch(validateAndSubmit(newForm, 'update'));
+    dispatch(validatePetForm(newForm, 'update'));
   };
   const handleDelete = (e) => {
     e.preventDefault();
@@ -20,27 +20,27 @@ export const ManagePetPage = ({ datepickerVisibility, dispatch, petForm, usernam
   const handleDatepickerVisiblity = () => {
     const newForm = Object.assign({}, petForm, { birthday: document.getElementById('birthday').value });
     dispatch(toggleDatepickerVisibility());
-    dispatch(petFormChange(newForm));
+    dispatch(validatePetForm(newForm));
   };
   const handleNameChange = (e) => {
     const newForm = Object.assign({}, petForm, { name: e.target.value });
-    dispatch(petFormChange(newForm));
+    dispatch(validatePetForm(newForm));
   };
   const handleSpeciesChange = (e) => {
     const newForm = Object.assign({}, petForm, { species: e.target.value });
-    dispatch(petFormChange(newForm));
+    dispatch(validatePetForm(newForm));
   };
   const handleHomestatusChange = (e) => {
     const newForm = Object.assign({}, petForm, { homestatus: e.target.value });
-    dispatch(petFormChange(newForm));
+    dispatch(validatePetForm(newForm));
   };
   const handleLatChange = (e) => {
     const newForm = Object.assign({}, petForm, { lat: Number(e.target.value) });
-    dispatch(petFormChange(newForm));
+    dispatch(validatePetForm(newForm));
   };
   const handleLngChange = (e) => {
     const newForm = Object.assign({}, petForm, { lng: Number(e.target.value) });
-    dispatch(petFormChange(newForm));
+    dispatch(validatePetForm(newForm));
   };
   return (
     <div>

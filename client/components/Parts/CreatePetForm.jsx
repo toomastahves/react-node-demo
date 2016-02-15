@@ -15,6 +15,7 @@ export const CreatePetForm = ({ pet, handleNameChange, handleSpeciesChange, hand
               <input onChange={handleNameChange} className='selectbox-aligned' id='petname' type='text' placeholder={'Name'} />
             </div>
             <div>
+              <div className='form-error'>{pet.errors ? pet.errors.birthday : ''}</div>
               <input
                 value={pet.birthday}
                 onClick={handleDatepickerVisiblity}
@@ -33,8 +34,8 @@ export const CreatePetForm = ({ pet, handleNameChange, handleSpeciesChange, hand
             </div>
             <div className='pure-control-group'>
               <select onChange={handleHomestatusChange} value={pet.homestatus} className='selectbox-aligned' id='homestatus'>
-                <option value='0'>{'Homeless'}</option>
-                <option value='1'>{'Has home'}</option>
+                <option value={false}>{'Homeless'}</option>
+                <option value={true}>{'Has home'}</option>
               </select>
             </div>
             <div className='pure-control-group'>
