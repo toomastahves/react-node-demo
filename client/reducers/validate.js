@@ -6,15 +6,8 @@ const initialState = {
   usernameError: '',
   passwordError: '',
   serverError: '',
-  petForm: {
-    birthday: { value: null, error: '' },
-    name: { value: '', error: '' },
-    species: { value: '', error: '' },
-    homestatus: { value: null, error: '' },
-    lat: { value: null },
-    lng: { value: null },
-    latlng: { error: '' }
-  }
+  datepickerVisibility: false,
+  petForm: {}
 };
 
 export const validateReducer = (state = initialState, action) => {
@@ -44,6 +37,18 @@ export const validateReducer = (state = initialState, action) => {
 
     case actions.RESET_PET_FORM:
       return Object.assign({}, initialState);
+
+    case actions.TOGGLE_DATEPICKER_VISIBILITY:
+      return Object.assign({}, state, { datepickerVisibility: !state.datepickerVisibility });
+
+    case actions.PET_NAME_CHANGE:
+      return Object.assign({}, state, { petForm: action.petForm });
+
+    case actions.PET_FORM_CHANGE:
+      return Object.assign({}, state, { petForm: action.petForm });
+
+    case actions.INIT_PET_FORM:
+      return Object.assign({}, state, { petForm: action.petForm });
 
     default:
       return state;

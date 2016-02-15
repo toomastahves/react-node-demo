@@ -15,7 +15,7 @@ export const TablePage = (props) => {
         <div className='content-subheader'>
           {'Pets table.'}
         </div>
-        {props.username && <PetForm />}
+        {props.username }
         <HandleTable />
       </div>
     </div>

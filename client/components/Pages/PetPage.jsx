@@ -3,13 +3,61 @@ import ContentLayout from '../Layouts/Content';
 import { connect } from 'react-redux';
 import SubHeader from '../Parts/SubHeader';
 import { getPet } from '../../actions/getPet';
-import PetInfo from '../Parts/PetInfo';
+import { deletePet } from '../../actions/deletePet';
+import { updatePet } from '../../actions/updatePet';
+import PetUpdateForm from '../Parts/PetUpdateForm';
+import { toggleDatepickerVisibility, petFormChange } from '../../actions/validatePetForm';
 
-export const PetPage = (props) => {
+export const PetPage = ({ datepickerVisibility, dispatch, petForm, username }) => {
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const newForm = Object.assign({}, petForm, { updated_by: username });
+    dispatch(updatePet(newForm));
+  };
+  const handleDelete = (e) => {
+    e.preventDefault();
+    dispatch(deletePet(petForm._id));
+  };
+  const handleDatepickerVisiblity = () => {
+    const newForm = Object.assign({}, petForm, { birthday: document.getElementById('birthday').value });
+    dispatch(toggleDatepickerVisibility());
+    dispatch(petFormChange(newForm));
+  };
+  const handleNameChange = (e) => {
+    const newForm = Object.assign({}, petForm, { name: e.target.value });
+    dispatch(petFormChange(newForm));
+  };
+  const handleSpeciesChange = (e) => {
+    const newForm = Object.assign({}, petForm, { species: e.target.value });
+    dispatch(petFormChange(newForm));
+  };
+  const handleHomestatusChange = (e) => {
+    const newForm = Object.assign({}, petForm, { homestatus: e.target.value });
+    dispatch(petFormChange(newForm));
+  };
+  const handleLatChange = (e) => {
+    const newForm = Object.assign({}, petForm, { lat: Number(e.target.value) });
+    dispatch(petFormChange(newForm));
+  };
+  const handleLngChange = (e) => {
+    const newForm = Object.assign({}, petForm, { lng: Number(e.target.value) });
+    dispatch(petFormChange(newForm));
+  };
   return (
     <div>
       <SubHeader header={'Pet details page'} description={'Updated or delete pet here'} />
-      <PetInfo pet={props.pet} />
+      <PetUpdateForm
+        handleDelete={handleDelete}
+        handleUpdate={handleUpdate}
+        handleDatepickerVisiblity={handleDatepickerVisiblity}
+        datepickerVisibility={datepickerVisibility}
+        pet={petForm}
+        handleNameChange={handleNameChange}
+        handleSpeciesChange={handleSpeciesChange}
+        handleHomestatusChange={handleHomestatusChange}
+        handleLatChange={handleLatChange}
+        handleLngChange={handleLngChange}
+      />
     </div>
   );
 };
@@ -20,13 +68,15 @@ PetPage.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    pet: state.petReducer.pet
+    datepickerVisibility: state.validateReducer.datepickerVisibility,
+    petForm: state.validateReducer.petForm,
+    username: state.authReducer.username
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  dispatch(getPet(ownProps.params._id));
-  return {};
+const mapDispatchToProps = (dispatchOnLoad, ownProps) => {
+  dispatchOnLoad(getPet(ownProps.params._id));
+  return dispatch => ({ dispatch });
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContentLayout(PetPage));

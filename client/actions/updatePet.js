@@ -1,48 +1,46 @@
-import { DELETE_PET_REQUEST, DELETE_PET_SUCCESS, DELETE_PET_ERROR } from '../constants/pets';
+import { UPDATE_PET_REQUEST, UPDATE_PET_SUCCESS, UPDATE_PET_ERROR } from '../constants/pets';
 import { SERVER_URI } from '../constants/uri';
 import { LOCALSTORAGE_TOKEN_KEY } from '../constants/auth';
 import fetch from 'isomorphic-fetch';
 import { getValue } from '../services/storage';
 import { hashHistory } from 'react-router';
 
-export const deletePetRequest = () => {
+export const updatePetRequest = () => {
   return {
-    type: DELETE_PET_REQUEST
+    type: UPDATE_PET_REQUEST
   };
 };
 
-export const deletePetSuccess = (_id) => {
+export const updatePetSuccess = (pet) => {
   hashHistory.replace('table');
   return {
-    type: DELETE_PET_SUCCESS,
-    _id
+    type: UPDATE_PET_SUCCESS,
+    pet
   };
 };
 
-export const deletePetError = (error) => {
+export const updatePetError = (error) => {
   return {
-    type: DELETE_PET_ERROR,
+    type: UPDATE_PET_ERROR,
     error
   };
 };
 
-export const deletePet = (_id) => {
+export const updatePet = (pet) => {
   const token = getValue(LOCALSTORAGE_TOKEN_KEY);
   return dispatch => {
-    dispatch(deletePetRequest());
+    dispatch(updatePetRequest());
     return fetch(`${SERVER_URI}/api/pets`, {
-      method: 'DELETE',
+      method: 'PUT',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'x-access-token': token
       },
-      body: JSON.stringify({
-        _id
-      })
+      body: JSON.stringify(pet)
     })
     .then(response => response.json())
-    .then(dispatch(deletePetSuccess(_id)))
-    .catch(error => dispatch(deletePetError(error)));
+    .then(updatedPet => dispatch(updatePetSuccess(updatedPet)))
+    .catch(error => dispatch(updatePetError(error)));
   };
 };

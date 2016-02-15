@@ -20,7 +20,7 @@ export const petReducer = (state = initialState, action) => {
     case actions.GET_PET_REQUEST:
       return Object.assign({}, state, { fetching: true, error: '' });
     case actions.GET_PET_SUCCESS:
-      return Object.assign({}, state, { fetching: false, pet: action.pet });
+      return Object.assign({}, state, { fetching: true, pet: action.pet });
     case actions.GET_PET_ERROR:
       return Object.assign({}, state, { fetching: false, error: action.error });
 

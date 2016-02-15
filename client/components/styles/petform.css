@@ -16,6 +16,10 @@
   background-color: rgb(66, 184, 221) !important;
 }
 
+.button-error {
+  background-color: rgb(202, 60, 60) !important;
+}
+
 .form-success {
   color: green;
 }
@@ -26,4 +30,10 @@
 
 .datepicker-custom {
   font-size: 1em !important;
+}
+
+.disabled {
+  background-color: white !important;
+  cursor: pointer !important;
+  color: black !important;
 }

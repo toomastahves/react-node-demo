@@ -1,11 +1,12 @@
-import { GET_PET_REQUEST, GET_PET_SUCCESS, GET_PET_ERROR } from '../constants/pets';
+import { GET_PET_REQUEST, GET_PET_ERROR } from '../constants/pets';
+import { INIT_PET_FORM } from '../constants/validate';
 import { SERVER_URI } from '../constants/uri';
 import fetch from 'isomorphic-fetch';
 
-export const getPetSuccess = (pet) => {
+export const initPetForm = (pet) => {
   return {
-    type: GET_PET_SUCCESS,
-    pet
+    type: INIT_PET_FORM,
+    petForm: pet
   };
 };
 
@@ -33,7 +34,7 @@ export const getPet = (_id) => {
       }
     })
     .then(response => response.json())
-    .then(pet => dispatch(getPetSuccess(pet)))
+    .then(petForm => dispatch(initPetForm(petForm)))
     .catch(error => dispatch(getPetError(error)));
   };
 };

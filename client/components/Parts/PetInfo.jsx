@@ -3,7 +3,6 @@ import '../styles/petinfo.css';
 import fecha from 'fecha';
 
 export const PetInfo = ({ pet }) => {
-  console.log(pet);
   return (
     <div className='petinfo-content'>
       <table className='pure-table pure-table-horizontal'>
@@ -55,7 +54,7 @@ export const PetInfo = ({ pet }) => {
 };
 
 PetInfo.propTypes = {
-
+  pet: PropTypes.object.isRequired
 };
 
 export default PetInfo;

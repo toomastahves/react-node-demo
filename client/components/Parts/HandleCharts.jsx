@@ -67,7 +67,7 @@ export const HandleCharts = ({ pets, fetching }) => {
         <Line data={data2}
           options={{
             responsive: true,
-            multiTooltipTemplate: `<%= datasetLabel %> - <%= value %>`
+            multiTooltipTemplate: '<%= datasetLabel %> - <%= value %>'
           }}
         />
       </div>
@@ -76,7 +76,7 @@ export const HandleCharts = ({ pets, fetching }) => {
         <Bar data={data2}
           options={{
             responsive: true,
-            multiTooltipTemplate: `<%= datasetLabel %> - <%= value %>`
+            multiTooltipTemplate: '<%= datasetLabel %> - <%= value %>'
           }}
         />
       </div>
@@ -85,7 +85,7 @@ export const HandleCharts = ({ pets, fetching }) => {
         <Radar data={data2}
           options={{
             responsive: true,
-            multiTooltipTemplate: `<%= datasetLabel %> - <%= value %>`
+            multiTooltipTemplate: '<%= datasetLabel %> - <%= value %>'
           }}
         />
       </div>

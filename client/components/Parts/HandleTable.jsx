@@ -9,12 +9,12 @@ export const HandleTable = ({ pets, fetching }) => {
   if(fetching) return <Spinner />;
 
   pets.map(p => {
-    p.name = <a href={`#/pet/${p._id}`}>{p.name}</a>;
     p.location = [ p.lat, p.lng ];
     p.homestatus = p.homestatus ? 'Has home' : 'Homeless';
     p.birthday = fecha.format(new Date(p.birthday), 'DD MMM YYYY');
     p.updated_at = fecha.format(new Date(p.updated_at), 'DD MMM hh:mm:ss');
     p.updated_by = p.updated_by ? p.updated_by : '';
+    p.details = <a href={`#/pet/${p._id}`}>{'Details'}</a>;
     return p;
   });
 
@@ -50,6 +50,9 @@ export const HandleTable = ({ pets, fetching }) => {
           </Th>
           <Th column='updated_by'>
             <strong className='updated_by-header'>{'Updated by'}</strong>
+          </Th>
+          <Th column='details'>
+            <strong className='details-header'></strong>
           </Th>
         </Thead>
       </Table>
